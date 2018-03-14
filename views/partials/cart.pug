@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  include ../nav
+
+  .row.checkout-list
+    .card
+      .card-content
+        h5 You have #{total} Item in Your Cart
+        hr
+        table.bordered.centered
+          thead
+            tr
+              th Item
+              th Quantity
+              th Price
+              th Total
+          tbody
+            for product in cart
+              tr
+                td
+                  .chip
+                    img(src=`${product.image}`, alt='product shot')
+                    b= product.product
+
+                td #{product.quantity}
+                td $#{product.price}
+                td $#{product.total.toFixed(2)}
+
+  .row.checkout-list
+    .col.l6.s6
+      .card
+        .card-content
+          p Have a Promo code?
+          input(type='text', name='promo')
+    .col.l6.s6
+      .card
+        .card-content
+          p Cart Totals
+            span.right $#{total_price.toFixed(2)}
+          p Shipping
+            span.right $#{shipping.toFixed(2)}
+          hr
+          p Total
+            span.right $#{total_cost.toFixed(2)}
+          a.btn(href='/cart/charge') proceed to checkout
+
+

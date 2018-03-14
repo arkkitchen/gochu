@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Go Chu Kitchen
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='/materialize/css/materialize.min.css')
+  body
+    block content
+
+    include footer
+
+    append scripts
+      script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+      script(type='text/javascript', src='/materialize/js/materialize.min.js')
+      script(type='text/javascript', src='/javascripts/init.js')
+      script(defer, src='https://use.fontawesome.com/releases/v5.0.8/js/all.js')

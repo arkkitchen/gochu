@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  include ../nav
+
+  center
+    h2 SIGN UP
+
+  center
+    form#login-form(action='/signup', method='POST')
+      .input-field
+        i.material-icons person
+        input#email(type='text', name='firstname', placeholder='FIRST NAME')
+        input#email(type='text', name='lastname', placeholder='LAST NAME')
+
+      .input-field
+        i.material-icons mail
+        input#email(type='email', name='username', placeholder='EMAIL ADDRESS')
+      .input-field
+        i.material-icons fingerprint
+        input#password(type='password', name='password', placeholder='PASSWORD')
+      .input-field
+        input.gc-button(type='submit', value=' SIGN UP ')
+
+      p.center FORGOT PASSWORD?
+      p.center ALREADY HAVE AN ACCOUNT?
+        a(href='/login') &nbsp;LOGIN!

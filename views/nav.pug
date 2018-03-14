@@ -1,0 +1,31 @@
+main
+  nav.white(role='navigation')
+    .nav-wrapper.container
+      a#logo-container.brand-logo.left(href='/')
+        img.gc-logo(src='/images/gochuKitchen_bw_logo.png' alt='go chu logo')
+      ul.right.hide-on-med-and-down
+        li
+          a.link(href='/products') PRODUCTS
+        li
+          a.link(href='/cart') CART
+            span.cart-amount (#{cart-amount})
+        li
+          a.link(href='/recipes') RECIPES
+        li
+          a.link(href='/blog') BLOG
+        li
+          a.link(href='/login') LOGIN
+      ul#nav-mobile.side-nav.grey.right
+        li.center
+          a.link.white-text(href='/products') PRODUCTS
+        li.center
+          a.link.white-text(href='/cart') CART
+            span.cart-amount (#{cart-amount})
+        li.center
+          a.link.white-text(href='/recipes') RECIPES
+        li.center
+          a.link.white-text(href='/blog') BLOG
+        li.center
+          a.link.white-text(href='/login') LOGIN
+      a.right.button-collapse.link(href='#', data-activates='nav-mobile')
+        i.material-icons menu
