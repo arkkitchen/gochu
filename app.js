@@ -7,16 +7,20 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const KnexSessionStore = require('connect-session-knex')(session);
 
+// helper functions
+const utils = require('./lib/utils');
+
 // db
-const knex = require('./db/knex');
+const knex = require('./db/connection');
 
 // db session storage
 const store = new KnexSessionStore({knex})
 
 // routes
 const index = require('./routes/index');
-const users = require('./routes/users');
+const auth = require('./routes/auth');
 const cart = require('./routes/cart');
+const admin = require('./routes/admin');
 
 const app = express();
 
@@ -41,8 +45,9 @@ app.use(session({
 }));
 
 app.use('/', index);
+app.use('/auth', auth);
 app.use('/cart', cart);
-app.use('/users', users);
+app.use('/admin', utils.requiresLogin, admin);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

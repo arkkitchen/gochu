@@ -1,34 +1,29 @@
-const keyPublishable = process.env.PUBLISHABLE_KEY;
-const keySecret = process.env.SECRET_KEY;
-
 const _ = require('lodash');
 const express = require('express');
 const router = express.Router();
+
+
+const keyPublishable = process.env.PUBLISHABLE_KEY;
+const keySecret = process.env.SECRET_KEY;
 const stripe = require('stripe')(keySecret);
 
-router.get('/', (req, res, next) => {
-  console.log(req.session);
-  let shipping = 5.00;
-  let data = {
-    keyPublishable,
-    cart: _.get(req, 'session.cart', []),
-    total: _.get(req, 'session.total'),
-    total_price: _.get(req, 'session.total_price'),
-    shipping: shipping,
-    total_cost:_.get(req, 'session.total_price') + shipping
-  }
+const utils = require('../lib/utils');
 
-  res.render('partials/cart', data);
+router.get('/', (req, res, next) => {
+  let data = utils.getSession(req);
+  data.keyPublishable = keyPublishable;
+
+  console.log("GOT HERE?", data);
+
+  res.render('cart/cart', data);
 });
 
 router.post('/:product_id', (req, res, next) => {
-  req.session.cart_amount = 4
-  let cart = _.get(req, 'body');
-  let total = Number(_.get(cart, 'quantity'));
-  cart.total = total;
-  req.session.cart = [cart];
-  req.session.total_price = total * Number(_.get(cart, 'price'));
-  req.session.total = total;
+  console.log("REQ.BODY: ", req.body);
+  let cart = _.get(req, 'session.cart', []);
+  console.log("cart", cart.push(req.body));
+  // req.session.cart = cart.push(req.body);
+  console.log(req.session);
   res.redirect('/cart');
 });
 
@@ -71,7 +66,7 @@ router.post('/charge', (req, res, next) => {
    }))
   .then(charge => {
     console.log(charge);
-    res.render('partials/reciept.pug', {charge})
+    res.render('cart/reciept.pug', {charge})
   });
 })
 
@@ -86,7 +81,11 @@ router.get('/charge', (req, res, next) => {
     total_cost: _.get(req, 'session.total_price') + shipping,
     stripe_total: Number(_.get(req, 'session.total_price') + shipping) * 100
   }
-  res.render('partials/charge', data);
+  res.render('cart/charge', data);
 });
+
+router.get('/history', (req, res, next) => {
+  res.render('cart/history', {});
+})
 
 module.exports = router;

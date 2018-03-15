@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+  .row.shopping-bar
+  .gallery-container
+    .row.center
+      b worded to break up the flow here
+      p more words down here
+
+    .divider
+    .row.gallery
+      .col.s3.left-gallery
+        h4 SAUCE
+        b The Original
+
+      .col.s9.right-gallery
+        for product in products
+          .col.s12.m6
+            .card.z-depth-0
+              .card-image
+                a(href=`/products/${product.id}`)
+                  img(src=`${product.image}`, alt='product shot')
+                  if product.quantity > 0
+                    span.card-title in-stock
+                  else
+                    span.card-title out-of-stock
+
+              .cart-action.center
+                a(href=`/products/${product.product}`)= product.product
+                p.center= product.description
+  .divider.carousel-divider
+  .carousel.carousel-slider
+    a.carousel-item(href='#!')
+      img(src='/images/slide/contrast.jpg', alt='carousel 1')
+    a.carousel-item(href='#!')
+      img(src='/images/slide/cornered.jpg', alt='carousel 2')
+    a.carousel-item(href='#!')
+      img(src='/images/slide/gochu_slide_1.jpg', alt='carousel 3')
+    a.carousel-item(href='#!')
+      img(src='/images/slide/stairs.jpg', alt='carousel 4')

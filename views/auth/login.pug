@@ -1,16 +1,14 @@
 extends ../layout
 
 block content
-  include ../nav
-
   center
     h2 LOGIN
 
   center
-    form#login-form(action='/login', method='POST')
+    form#login-form(action='/auth/login', method='POST')
       .input-field
         i.material-icons mail
-        input#email(type='email', name='username', placeholder='EMAIL ADDRESS')
+        input#email(type='email', name='email', placeholder='EMAIL ADDRESS')
       .input-field
         i.material-icons fingerprint
         input#password(type='password', name='password', placeholder='PASSWORD')
@@ -19,7 +17,7 @@ block content
 
       p.center FORGOT PASSWORD?
       p.center DON'T HAVE AN ACCOUNT?
-        a(href='/signup') &nbsp;SIGN UP!
+        a(href='/auth/signup') &nbsp;SIGN UP!
 
       i.social.fab.fa-facebook.fa-2x
       i.social.fab.fa-google-plus-g.fa-2x

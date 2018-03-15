@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: rgba(168, 168, 168, 1);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 #kitchen_talk{
   width: 90%;
   margin-top: -18%;
@@ -101,4 +112,46 @@
 
 .billing {
   padding: 10px;
+}
+
+.user-tab {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+}
+
+nav {
+  border-bottom: 1px solid lightgrey;
+}
+
+.parallax-img {
+  opacity: 0.7;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.shopping-bar {
+  background: rgba(211, 211, 211, 0.4);
+  opacity: 0.7;
+  width: 100%;
+  height: 5em;
+  border-bottom: 1px solid lightgrey;
+}
+
+.gallery-container, .product-container {
+  padding: 20px;
+}
+
+.gallery {
+  padding: 10px;
+}
+
+.left-gallery {
+  border-right: 1px solid lightgrey;
+}
+
+.divider.carousel-divider {
+  margin-bottom: 10px;
+}
+
+.product-shot {
+  max-width: 300px;
 }
