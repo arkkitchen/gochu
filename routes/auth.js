@@ -23,28 +23,34 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
-  res.render('auth/login', {});
+  res.render('auth/login', _.get(req, 'session'));
 });
 
 router.post('/login', (req, res, next) => {
   //TODO reinitialiaze cart
   Users().where({email: req.body.email}).select().first().then((user) => {
     if(_.isEmpty(user)) {
-      res.render('auth/signup', {errors: 'User not found'});
+      let data = _.get(req, 'session');
+      data.error = 'User not found';
+      res.render('auth/signup', data);
     } else {
       let valid = utils.comparePass(req.body.password, user.password);
       if(valid){
         req.session.user = user;
-        res.redirect('/');
+        req.session.save((err) => {
+          res.redirect('/');
+        })
       } else {
-        res.render('auth/signup', {error: 'looks like you dont have an accocunt yet'})
+        let data = _.get(req, 'session');
+        data.error = 'looks like you dont have an accocunt yet';
+        res.render('auth/signup', data);
       }
     }
   })
 });
 
 router.get('/signup', (req, res, next) => {
-  res.render('auth/signup', {});
+  res.render('auth/signup', _.get(req, 'session'));
 });
 
 router.post('/signup', (req, res, next) => {
@@ -55,8 +61,9 @@ router.post('/signup', (req, res, next) => {
     res.redirect('/');
   })
   .catch((err) => {
-    console.log(err);
-    res.render('auth/signup', {error: 'user already exists'});
+    let data = _.get(req, 'session');
+    data.error = 'looks like you dont have an accocunt yet';
+    res.render('auth/signup', data)
   })
 });
 

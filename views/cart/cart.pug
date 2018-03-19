@@ -1,10 +1,13 @@
 extends ../layout
 
 block content
+  if error
+    span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
+
   .row.checkout-list
     .card
       .card-content
-        h5 You have #{total} Item in Your Cart
+        h5 You have #{cart_info.items} Item in Your Cart
         hr
         table.bordered.centered
           thead
@@ -21,26 +24,29 @@ block content
                     img(src=`${product.image}`, alt='product shot')
                     b= product.product
 
-                td #{product.quantity}
+                td= product.quantity
                 td $#{product.price}
-                td $#{product.total.toFixed(2)}
+                td $#{product.total}
 
   .row.checkout-list
     .col.l6.s6
       .card
         .card-content
-          p Have a Promo code?
-          input(type='text', name='promo')
+          form(action='/cart/promos', method='POST')
+            p Have a Promo code?
+            .input-field
+              input.validate(placeholder='promo code', name='promo', type='text')
+            input.btn(type='submit', value='apply')
+
+
     .col.l6.s6
       .card
         .card-content
           p Cart Totals
-            span.right $#{total_price.toFixed(2)}
+            span.right $#{cart_info.total}
           p Shipping
-            span.right $#{shipping.toFixed(2)}
+            span.right $#{5.00}
           hr
           p Total
-            span.right $#{total_cost.toFixed(2)}
+            span.right $#{cart_info.total}
           a.btn(href='/cart/charge') proceed to checkout
-
-

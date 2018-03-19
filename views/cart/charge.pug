@@ -6,92 +6,29 @@ block content
       hr
       p Returning customer? Click here to login
       hr
-      .col.l6.s6
-        .card
-          .card-content.billing
-            h5 Billing Details
-            .row
-              .input-field.col.s6
-                input(placeholder='first name', id='first_name', type='text')
-              .input-field.col.s6
-                input(placeholder='last name', id='last_name', type='text')
-            .row
-              .input-field.col.s12
-                input(placeholder='company name', id='company_name', type='text')
-            .row
-              .input-field.col.s12
-                input(placeholder='street address', id='address', type='text')
-                input(placeholder='apt, suit, unit (optional)', id='address_2', type='text')
-            .row
-              .input-field.col.s12
-                input(placeholder='town/city', id='city', type='text')
-            .row
-              .input-field.col.s6
-                input(placeholder='state', id='state', type='text')
+      if(user)
+        include charge_user
+      else
+        include charge_guest
 
-              .input-field.col.s6
-                input(placeholder='zip code', id='zip', type='text')
-            .row
-              .input-field.col.s12
-                input(placeholder='phone', id='phone', type='text')
-
-            .row
-              .input-field.col.s12
-                input(placeholder='email address', id='phone', type='text')
-              .input-field
-                input(type='checkbox', name='create_', id='create_account')
-
-
-      .col.l6.s6
-        .card
-          .card-content
-            h5 Ship to different address?
-            form(action="#")
-              p
-              input(type="checkbox" id="alt_address_check")
-              label(for="alt_address_check")
-            hr
-            #alt_address
-              .row
-                .input-field.col.s6
-                  input(placeholder='first name', id='first_name', type='text')
-                .input-field.col.s6
-                  input(placeholder='last name', id='last_name', type='text')
-              .row
-                .input-field.col.s12
-                  input(placeholder='company name', id='company_name', type='text')
-              .row
-                .input-field.col.s12
-                  input(placeholder='street address', id='address', type='text')
-                  input(placeholder='apt, suit, unit (optional)', id='address_2', type='text')
-              .row
-                .input-field.col.s12
-                  input(placeholder='town/city', id='city', type='text')
-              .row
-                .input-field.col.s6
-                  input(placeholder='state', id='state', type='text')
-
-                .input-field.col.s6
-                  input(placeholder='zip code', id='zip', type='text')
-
-        .card
-          .card-content
-            h5 Your Order
-            hr
-            p Cart Totals
-              span.right $#{total_price.toFixed(2)}
-            p Shipping
-              span.right $#{shipping.toFixed(2)}
-            hr
-            p Total
-              span.right $#{total_cost.toFixed(2)}
-            form(action='/cart/charge', method='POST')
-              script(
-                src='//checkout.stripe.com/v2/checkout.js',
-                class='stripe-button',
-                data-key=keyPublishable,
-                data-locale='auto',
-                data-description='Sample Charge',
-                data-amount=`${stripe_total}`
-              )
+      .card
+        .card-content
+          h5 Your Order
+          hr
+          p Cart Totals
+            span.right $#{cart_info.total}
+          p Shipping
+            span.right $#{shipping}
+          hr
+          p Total
+            span.right $#{cart_info.total}
+          form(action='/cart/charge', method='POST')
+            script(
+              src='//checkout.stripe.com/v2/checkout.js',
+              class='stripe-button',
+              data-key=keyPublishable,
+              data-locale='auto',
+              data-description='Sample Charge',
+              data-amount=`${stripe_total}`
+            )
 

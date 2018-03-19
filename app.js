@@ -44,6 +44,8 @@ app.use(session({
   store: store
 }));
 
+app.use(utils.getSession);
+
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/cart', cart);

@@ -9,57 +9,40 @@ function Products(){
   return knex('products');
 }
 
-router.get('/', (req, res, next) => {
-  // cart will always be an array
-  // cart_info will always be an object
-  // user will always be an object
-  req.session.destroy();
+router.get('/', utils.getSession, (req, res, next) => {
   console.log(req.session);
-  let data = utils.getSession(req);
-  res.render('index', data);
+  // req.session.destroy();
+  res.render('index', _.get(req, 'session'));
 });
 
 router.get('/recipes', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/recipes', data);
+  res.render('marketing/recipes', _.get(req, 'session'));
 });
 
 router.get('/about', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/about', data);
+  res.render('marketing/about', _.get(req, 'session'));
 });
 
 router.get('/talk', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/talk', data);
+  res.render('marketing/talk', _.get(req, 'session'));
 });
 
 router.get('/blog', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/blog', data);
+  res.render('marketing/blog', _.get(req, 'session'));
 });
 
 router.get('/faq', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/faq', data);
+  res.render('marketing/faq', _.get(req, 'session'));
 });
 
 router.get('/retailers', (req, res, next) => {
-  let data = utils.getSession(req);
-
-  res.render('marketing/retailers', data);
+  res.render('marketing/retailers', _.get(req, 'session'));
 });
 
 router.get('/products/:product', (req, res, next) => {
   // TODO: catch err
   Products().where({id: req.params.product}).select().first().then((product) => {
-    let data = utils.getSession(req);
-
+    let data = _.get(req, 'session');
     data.product = product;
     res.render('cart/product', data);
   })
@@ -67,10 +50,8 @@ router.get('/products/:product', (req, res, next) => {
 
 router.get('/products', (req, res, next) => {
   Products().select().then((products) => {
-    let data = utils.getSession(req);
-
+    let data = _.get(req, 'session');
     data.products = products;
-    console.log(products);
     res.render('cart/products', data);
   })
 });
