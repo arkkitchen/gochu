@@ -1,56 +1,41 @@
 header
-  nav.white.z-depth-0(role='navigation')
+  nav(role='navigation')
     .nav-wrapper
       a#logo-container.brand-logo.left(href='/')
         img.gc-logo(src='/images/gochuKitchen_bw_logo.png' alt='go chu logo')
+
       ul.right.hide-on-med-and-down
         li
-          a.link(href='/products') SAUCE
+          //- instagram
+          a.link(href='/#', hover)
+            i.material-icons.white-text center_focus_weak
 
         li
-          a.link(href='/recipes') RECIPES
-
-        li
-          a.black-text.dropdown-button(href='#!', data-activates='learn-dropdown', hover) LEARN
-
+          //- facebook
+          a.link(href='/#', hover)
+            i.material-icons.white-text font_download            
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
               span.blue-text Welcome, #{user.first_name}
         else
           li
-            a.link(href='/auth/login') LOGIN
+            a.link(href='/auth/login') LOGIN 
 
         li
-          a.link(href='/cart')
+          a.link(href='/cart', hover)
             ul
               li
-                i.material-icons.blue-text shopping_cart
-              li.blue-text (#{cart_info.items})
-
-      ul#nav-mobile.side-nav.grey.right
-        li.center
-          a.link.white-text(href='/products') SAUCE
-        li.center
-          a.link.white-text(href='/recipes') RECIPES
-        li.center
-          a.link.white-text(href='/blog') LEARN
+                i.material-icons.white-text shopping_cart
+              li.white-text (#{cart_info.items})
         if user
           li.user-tab.center
             a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
               span.blue-text Welcome, #{user.first_name}
-        else
-          li.center
-            a.link.white-text(href='/auth/login') LOGIN
 
-        li.center
-          a.link.white-text.center(href='/cart')
-            ul
-              i.material-icons.blue-text shopping_cart
 
       a.right.button-collapse.link(href='#', data-activates='nav-mobile')
         i.material-icons menu
-
       ul#user-dropdown.dropdown-content
         li
           a(href='/cart/history') order history
@@ -65,13 +50,62 @@ header
           a(href='/auth/logout') logout
         li.divider
 
-      ul#learn-dropdown.dropdown-content
-        li
-          a(href='/about') our story
-        li
-          a(href='/talk') kitchen talk
-        li
-          a(href='/blog') blog
-        li
-          a(href='/faq') FAQs
-        li.divider
+      //-   if user
+      //-     li.user-tab.center
+      //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
+      //-         span.blue-text Welcome, #{user.first_name}
+      //-   else
+      //-     li.center
+      //-       a.link.white-text(href='/auth/login') LOGIN
+
+      //-   li.center
+      //-     a.link.white-text.center(href='/cart')
+      //-       ul
+      //-         i.material-icons.blue-text shopping_cart
+      //- ul#nav-mobile.side-nav.grey.right
+      //-   li.center
+      //-     a.link.white-text(href='/products') SAUCE
+      //-   li.center
+      //-     a.link.white-text(href='/recipes') RECIPES
+      //-   li.center
+      //-     a.link.white-text(href='/blog') LEARN
+      //-   if user
+      //-     li.user-tab.center
+      //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
+      //-         span.blue-text Welcome, #{user.first_name}
+      //-   else
+      //-     li.center
+      //-       a.link.white-text(href='/auth/login') LOGIN
+
+      //-   li.center
+      //-     a.link.white-text.center(href='/cart')
+      //-       ul
+      //-         i.material-icons.blue-text shopping_cart
+
+      //- a.right.button-collapse.link(href='#', data-activates='nav-mobile')
+      //-   i.material-icons menu
+
+      //- ul#user-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/cart/history') order history
+      //-   li
+      //-     a(href='/auth/logout') logout
+      //-   li.divider
+
+      //- ul#user-nav-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/cart/history') order history
+      //-   li
+      //-     a(href='/auth/logout') logout
+      //-   li.divider
+
+      //- ul#learn-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/about') our story
+      //-   li
+      //-     a(href='/talk') kitchen talk
+      //-   li
+      //-     a(href='/blog') blog
+      //-   li
+      //-     a(href='/faq') FAQs
+      //-   li.divider

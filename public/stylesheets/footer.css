@@ -1,0 +1,43 @@
+.page-footer{
+    background-color: transparent
+}
+.footerText{
+    font-family: source code pro;
+    letter-spacing: 4.5px;
+    font-size: 11px;
+    color:  black
+}
+
+#footerParagraph{
+    background-color: #424242;
+    width: 385px;
+    padding-left: 5px
+}
+
+.footerLi{
+    margin-top: 5px;
+    background-color: rgba(206, 46, 38, 0.577);
+    padding-left: 6px;
+    padding-bottom: 2.5px;
+    padding-top: 2px;
+    width: 175px
+}
+
+.gc-button{
+    color:  rgba(199, 38, 30, 0.522);
+    padding-left: 6px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    background-color: transparent;
+    border: white 3px solid;
+    width: 150px;
+    font-size: 14px
+}
+
+#copyright_text{
+    letter-spacing: 4px;
+    font-size: 8px;
+    color: #303030;
+    margin-left: 50px
+}
+

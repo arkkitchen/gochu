@@ -1,19 +1,26 @@
-footer.page-footer.grey.lighten-4.black-text.footer
+footer.page-footer.white-text.footer.footerText
   .container
     .row
-      .col.l6.s6
+      .col.s10
         h5 NEWSLETTER
-        p do the right thing. stay informed.
+        p#footerParagraph do the right thing. stay informed.
         form(method='POST', action='/subscribe')
           .input-field
-            input.gc-button(type='submit', value=' SUBSCRIBE ')
-
-      .col.l3.s6
+            input.gc-button.white-text(type='submit', value=' SUBSCRIBE ')
+      .col.s2
         ul
-          li our mission
-          li about us
-          li contact us
-          li privacy & terms
+          li.footerLi
+            a.white-text(href='/about') 
+              | our story
+          li.footerLi
+            a.white-text(href='/faq') 
+              | FAQs
+          li.footerLi
+            a.white-text(href='/contact') 
+              | contact us
+          li.footerLi
+            a.white-text(href='/privacy') 
+              | privacy & terms
 
-  .footer-copyright.grey.lighten-3.black-text
-    p ©GO CHU KITCHEN 2017. ALL RIGHTS RESERVED
+  .footer-copyright.grey.lighten-3.black-text.footerText
+    p#copyright_text ©GO CHU KITCHEN 2017. ALL RIGHTS RESERVED

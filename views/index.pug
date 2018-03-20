@@ -1,30 +1,59 @@
 extends layout
 
 block content
-  #index-banner.parallax-container.valign-wrapper.center
-    .section.no-pad-bot
-      .container
-        br
-        h1.header.center.white-text.text-lighten-2 Best Sauce in the Biz
-        .row.center
-          //- h5.header.col.s12.light Go Chu
-        .row.center
-          a.btn-large.waves-effect.waves-light.lighten-1(href='/products') Get Sauce
-        br
-    .parallax
-      img.parallax-img(src='/images/slide/contrast.jpg', alt='go chu img')
+  body#homepage
+  .row#bookmarks
+    .col.s12.l3
+      a.linkColor(href='/products', hover)
+        h1.letterFont p
+        i.material-icons.icon-white fiber_manual_record
+        .navFont products
+      
+    .col.s12.l3
+      a.linkColor(href='/blog', hover)        
+        h1.letterFont b 
+        i.material-icons.icon-white fiber_manual_record
+        .navFont blog
+      
+    .col.s12.l3
+      a.linkColor(href='/recipes', hover)          
+        h1.letterFont r 
+        i.material-icons.icon-white fiber_manual_record
+        .navFont recipes
+      
+    .col.s12.l3
+      a.linkColor(href='/cart', hover)        
+        h1.letterFont c 
+        i.material-icons.icon-white fiber_manual_record          
+        .navFont cart
+          
+    
+        
 
-  .container
-    .section
+  //- #index-banner.parallax-container.valign-wrapper.center
+  //-   .section.no-pad-bot
+  //-     .container
+  //-       br
+  //-       h1.header.center.white-text.text-lighten-2 Best Sauce in the Biz
+  //-       .row.center
+  //-         //- h5.header.col.s12.light Go Chu
+  //-       .row.center
+  //-         a.btn-large.waves-effect.waves-light.lighten-1(href='/products') Get Sauce
+  //-       br
+  //-   .parallax
+  //-     img.parallax-img(src='/images/slide/contrast.jpg', alt='go chu img')
 
-  .parallax-container.valign-wrapper
-    .row
-      .col.s6.offset-s6
-        .contianer
-          br
-          h1.header.center.white-text.text-lighten-2 Try to beat it, I fucking dare
-          .row.center
-          br
+  //- .container
+  //-   .section
 
-    .parallax
-      img.parallax-img(src='/images/slide/vibrant_yellow_crop.jpg', alt='go chu second')
+  //- .parallax-container.valign-wrapper
+  //-   .row
+  //-     .col.s6.offset-s6
+  //-       .contianer
+  //-         br
+  //-         h1.header.center.white-text.text-lighten-2 Try to beat it, I dare
+  //-         .row.center
+  //-         br
+
+  //-   .parallax
+  //-     img.parallax-img(src='/images/slide/vibrant_yellow_crop.jpg', alt='go chu second')
