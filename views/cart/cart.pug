@@ -5,48 +5,57 @@ block content
     span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
 
   .row.checkout-list
-    .card
-      .card-content
-        h5 You have #{cart_info.items} Item in Your Cart
-        hr
-        table.bordered.centered
-          thead
-            tr
-              th Item
-              th Quantity
-              th Price
-              th Total
-          tbody
-            for product in cart
-              tr
-                td
-                  .chip
-                    img(src=`${product.image}`, alt='product shot')
-                    b= product.product
+    .col.s12
+      h1.pageTitle.center-align CART
+        .card.cart_table.center-align
+          .card-content
+            h5.privacy_heading You have #{cart_info.items} Item in Your Cart
+            hr
+            table.bordered.centered
+              thead
+                tr
+                  th.par Item
+                  th.par Quantity
+                  th.par Price
+                  th.par Total
+              tbody
+                for product in cart
+                  tr
+                    td
+                      .chip
+                        img(src=`${product.image}`, alt='product shot')
+                        b= product.product
 
-                td= product.quantity
-                td $#{product.price}
-                td $#{product.total}
-
-  .row.checkout-list
-    .col.l6.s6
-      .card
-        .card-content
-          form(action='/cart/promos', method='POST')
-            p Have a Promo code?
-            .input-field
-              input.validate(placeholder='promo code', name='promo', type='text')
-            input.btn(type='submit', value='apply')
-
-
-    .col.l6.s6
-      .card
-        .card-content
-          p Cart Totals
-            span.right $#{cart_info.total}
-          p Shipping
-            span.right $#{5.00}
-          hr
-          p Total
-            span.right $#{cart_info.total}
-          a.btn(href='/cart/charge') proceed to checkout
+                    td= product.quantity
+                    td $#{product.price}
+                    td $#{product.total}
+    .row
+      .col.s12
+        .col.s6
+          .card.cart_table
+            .card-content
+              form(action='/cart/promos', method='POST')
+                p.par Have a Promo code?
+                .input-field
+                  input.validate(name='promo', type='text')
+                label.white-text.par promo code
+                  br
+                  br
+                  input.gc-button.lightGrey_color.par(type='submit', value='apply')
+        .col.s6
+          .card.cart_table
+            .card-content
+              p.par Cart Totals
+                span.right $#{cart_info.total}
+              br
+              p.par Shipping
+                span.right $#{5.00}
+              br
+              hr
+              br
+              p.par Total
+                span.right $#{cart_info.total}
+                br
+                br
+                br
+              a.gc-button.lightGrey_color.par(href='/cart/charge') proceed to checkout

@@ -1,0 +1,27 @@
+
+#homepage{
+    background-image: url(../images/slide/stairs.jpg);
+    background-size: cover;
+    background-position: 50%
+  }
+  
+  nav{
+    background-color: transparent;
+    box-shadow: none
+  }
+
+  .link{
+    /* color:  rgba(206, 46, 38, 0.728); */
+    font-size: 15px;
+    font-family: Comfortaa;
+    letter-spacing: 3px;
+    font-weight: bolder
+  }
+
+  .lightGrey_color{
+    color: #eeeeee
+  }
+
+  .fa_icon{
+    font-size: 18px
+  }

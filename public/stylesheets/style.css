@@ -1,14 +1,65 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 body {
+  background-color: rgba(171, 184, 190, 0.899);
+  background-size: cover;
+  background-position: 50%;
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
-  color: rgba(168, 168, 168, 1);
+    flex-direction: column
+}
+ main {
+  flex: 1 0 auto;
 }
 
-main {
+.gc-logo {
+  width: 6em;
+}
+
+.gc-logo-2 {
+  width: 10em;
+  padding-top: 2em
+}
+
+#bookmarks{
+  height: 600px;
+  padding-top: 12%;
+  padding-left: 14%
+}
+
+.letterFont{
+  color: #fafafacd;
+  font-size: 150px;
+  font-family: Comfortaa;
+  letter-spacing: 4px;
+  font-weight: regular
+}
+
+/* use a:active --> mouse hovers, action happens*/
+a:hover.linkColor i{
+  /* background-color: rgba(206, 46, 38, 0.577) */
+  background-color:#a8a8a898
+  /* background-color: rgba(0, 0, 255, 0.563); */
+}
+
+i.icon-white{
+  /* color: rgba(255, 255, 255, 0.673); */
+  color: #151515e2;
+  font-size: 22px
+}
+
+.navFont{
+  color: white;
+  /* color:  rgba(206, 46, 38, 0.728); */
+  font-size: 18px;
+  font-family: Comfortaa;
+  letter-spacing: 4px;
+  font-weight: bolder
+}
+
+/* main {
   flex: 1 0 auto;
 }
 
@@ -36,7 +87,6 @@ main {
   color: black
 }
 .KT_card_content {
-  /*font-family: Montserrat;*/
   font-family: source code pro;
   font-size: 15px;
   color: #2a2a2a;
@@ -48,11 +98,11 @@ main {
   letter-spacing: 4px;
   font-size: 10px;
   color: black
-}
+} */
 /* HOMEPAGE CARDS ENDS */
 
 
-.gc-logo {
+/* .gc-logo {
   width: 6em;
 }
 
@@ -125,7 +175,7 @@ nav {
 
 .parallax-img {
   opacity: 0.7;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
+  filter: alpha(opacity=50);  For IE8 and earlier 
 }
 
 .shopping-bar {
@@ -154,4 +204,4 @@ nav {
 
 .product-shot {
   max-width: 300px;
-}
+} */
