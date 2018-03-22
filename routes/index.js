@@ -19,20 +19,20 @@ router.get('/recipes', (req, res, next) => {
   res.render('marketing/recipes', _.get(req, 'session'));
 });
 
-router.get('/about', (req, res, next) => {
-  res.render('marketing/about', _.get(req, 'session'));
+router.get('/blog', (req, res, next) => {
+  res.render('marketing/blog', _.get(req, 'session'));
 });
 
-router.get('/talk', (req, res, next) => {
-  res.render('marketing/talk', _.get(req, 'session'));
+router.get('/about', (req, res, next) => {
+  res.render('marketing/about', _.get(req, 'session'));
 });
 
 router.get('/contact', (req, res, next) => {
   res.render('marketing/contact', _.get(req, 'session'));
 });
 
-router.get('/blog', (req, res, next) => {
-  res.render('marketing/blog', _.get(req, 'session'));
+router.get('/privacy', (req, res, next) => {
+  res.render('marketing/privacy', _.get(req, 'session'));
 });
 
 router.get('/faq', (req, res, next) => {

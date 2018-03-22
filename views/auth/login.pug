@@ -2,23 +2,36 @@ extends ../layout
 
 block content
   center
-    h2 LOGIN
+    h2.pageTitle LOGIN
 
   center
-    form#login-form(action='/auth/login', method='POST')
-      .input-field
-        i.material-icons mail
-        input#email(type='email', name='email', placeholder='EMAIL ADDRESS')
-      .input-field
-        i.material-icons fingerprint
-        input#password(type='password', name='password', placeholder='PASSWORD')
-      .input-field
-        input.gc-button(type='submit', value=' SIGN IN ')
+    .row 
+      .col.s12
+        .col.s3
+        .col.s6
+          form#login-form(action='/auth/login', method='POST')
+            .input-field
+              //- i.material-icons mail
+              input#email(type='email', name='email')
+            label.white-text.par email address
+            br
+            .input-field
+              //- i.material-icons fingerprint
+              input.par#password(type='password', name='password')
+            label.white-text.par password          
+            br
+            br
+            .input-field
+              input.gc-button.par(type='submit', value=' SIGN IN ')
 
-      p.center FORGOT PASSWORD?
-      p.center DON'T HAVE AN ACCOUNT?
-        a(href='/auth/signup') &nbsp;SIGN UP!
-
-      i.social.fab.fa-facebook.fa-2x
-      i.social.fab.fa-google-plus-g.fa-2x
-      i.social.fab.fa-twitter.fa-2x
+            br
+            p.par.center FORGOT PASSWORD?
+            br
+            br
+            p.par.center DON'T HAVE AN ACCOUNT?
+              a#log_sign(href='/auth/signup') &nbsp;sign up!
+            br
+            br
+            //- i.social.fab.fa-facebook.fa-2x
+            //- i.social.fab.fa-google-plus-g.fa-2x
+            //- i.social.fab.fa-twitter.fa-2x

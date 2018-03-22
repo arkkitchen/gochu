@@ -24,7 +24,7 @@
 }
 
 .gc-button{
-    color:  rgba(199, 38, 30, 0.522);
+    color:  #eeeeee;
     padding-left: 6px;
     padding-bottom: 8px;
     padding-top: 8px;
@@ -38,6 +38,10 @@
     letter-spacing: 4px;
     font-size: 8px;
     color: #303030;
+    margin-left: 50px
+}
+
+#to_the_left{
     margin-left: 50px
 }
 

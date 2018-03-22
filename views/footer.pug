@@ -1,26 +1,27 @@
-footer.page-footer.white-text.footer.footerText
-  .container
-    .row
-      .col.s10
-        h5 NEWSLETTER
-        p#footerParagraph do the right thing. stay informed.
-        form(method='POST', action='/subscribe')
-          .input-field
-            input.gc-button.white-text(type='submit', value=' SUBSCRIBE ')
-      .col.s2
-        ul
-          li.footerLi
-            a.white-text(href='/about') 
-              | our story
-          li.footerLi
-            a.white-text(href='/faq') 
-              | FAQs
-          li.footerLi
-            a.white-text(href='/contact') 
-              | contact us
-          li.footerLi
-            a.white-text(href='/privacy') 
-              | privacy & terms
-
+footer.page-footer.white-text.footerText
+  .row
+    .col.s12
+    .col.s1
+    .col.s1
+      h5.lightGrey_color NEWSLETTER
+      p#footerParagraph.hide-on-small-only do the right thing. stay informed.
+      form(method='POST', action='/subscribe')
+        .input-field
+          input.gc-button.lightGrey_color(type='submit', value=' SUBSCRIBE ')
+    .col.s7#to_the_left
+    .col.s1
+      ul.hide-on-small-only
+        li.footerLi
+          a.white-text(href='/about') 
+            | our story
+        li.footerLi
+          a.white-text(href='/faq') 
+            | FAQs
+        li.footerLi
+          a.white-text(href='/contact') 
+            | contact us
+        li.footerLi
+          a.white-text(href='/privacy') 
+            | privacy & terms
   .footer-copyright.grey.lighten-3.black-text.footerText
     p#copyright_text ©GO CHU KITCHEN 2017. ALL RIGHTS RESERVED

@@ -8,25 +8,27 @@ header
         li
           //- instagram
           a.link(href='/#', hover)
-            i.material-icons.white-text center_focus_weak
+            i.fa_icon.fab.fa-facebook.lightGrey_color
+            //- i.material-icons.lightGrey_color center_focus_weak
 
         li
           //- facebook
           a.link(href='/#', hover)
-            i.material-icons.white-text font_download            
+            i.fa_icon.fab.fa-instagram
+            //- i.material-icons.lightGrey_color font_download            
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
               span.blue-text Welcome, #{user.first_name}
         else
           li
-            a.link(href='/auth/login') LOGIN 
+            a.link.lightGrey_color(href='/auth/login') LOGIN 
 
         li
           a.link(href='/cart', hover)
             ul
               li
-                i.material-icons.white-text shopping_cart
+                i.material-icons.lightGrey_color shopping_cart
               li.white-text (#{cart_info.items})
         if user
           li.user-tab.center

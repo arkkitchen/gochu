@@ -5,24 +5,38 @@ block content
     span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
 
   center
-    h2 SIGN UP
+    h2.pageTitle SIGN UP
 
-  center
-    form#login-form(action='/auth/signup', method='POST')
-      .input-field
-        i.material-icons person
-        input#email(type='text', name='first_name', placeholder='FIRST NAME')
-        input#email(type='text', name='last_name', placeholder='LAST NAME')
-
-      .input-field
-        i.material-icons mail
-        input#email(type='email', name='email', placeholder='EMAIL ADDRESS')
-      .input-field
-        i.material-icons fingerprint
-        input#password(type='password', name='password', placeholder='PASSWORD')
-      .input-field
-        input.gc-button(type='submit', value=' SIGN UP ')
-
-      p.center FORGOT PASSWORD?
-      p.center ALREADY HAVE AN ACCOUNT?
-        a(href='/auth/login') &nbsp;LOGIN!
+    .row 
+      .col.s12
+        .col.s3
+        .col.s6
+          center
+            form#login-form(action='/auth/signup', method='POST')
+              .input-field
+                //- i.material-icons person
+                input#email(type='text', name='first_name')
+              label.white-text.par first name
+                br
+                br
+                input#email(type='text', name='last_name')
+              label.white-text.par last name
+                br
+                br
+              .input-field
+                input#email(type='email', name='email')
+              label.white-text.par email address
+                br
+                br
+              .input-field
+                input#password(type='password', name='password')
+              label.white-text.par password    
+                br
+                br         
+              .input-field
+                input.gc-button(type='submit', value=' SIGN UP ')
+                br
+              p.par.center FORGOT PASSWORD?
+                br
+              p.par.center ALREADY HAVE AN ACCOUNT?
+                a#log_sign(href='/auth/login') &nbsp;login!
