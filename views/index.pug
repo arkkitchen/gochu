@@ -2,31 +2,47 @@ extends layout
 
 block content
   body#homepage
-  .row#bookmarks
-    .col.s12.l3
-      a.linkColor(href='/products', hover)
-        h1.letterFont p
-        i.material-icons.icon-white fiber_manual_record
-        .navFont products
-      
-    .col.s12.l3
-      a.linkColor(href='/blog', hover)        
-        h1.letterFont b 
-        i.material-icons.icon-white fiber_manual_record
-        .navFont blog
-      
-    .col.s12.l3
-      a.linkColor(href='/recipes', hover)          
-        h1.letterFont r 
-        i.material-icons.icon-white fiber_manual_record
-        .navFont recipes
-      
-    .col.s12.l3
-      a.linkColor(href='/cart', hover)        
-        h1.letterFont c 
-        i.material-icons.icon-white fiber_manual_record          
-        .navFont cart
-          
+    .row#bookmarks
+      .col.s3
+        a.linkColor(href='/products', hover)
+          .row.center
+            i.homepage_icon.fas.fa-cube.lightGrey_color
+          .row.center
+            i.material-icons.icon-white fiber_manual_record
+          .row.center
+            .navFont products
+          //- h1.letterFont p
+        
+      .col.s3
+        a.linkColor(href='/blog', hover)
+          .row.center
+            i.homepage_icon.far.fa-edit.lightGrey_color
+          .row.center
+            i.material-icons.icon-white fiber_manual_record
+          .row.center
+            .navFont blog       
+          //- h1.letterFont b 
+        
+      .col.s3
+        a.linkColor(href='/recipes', hover)
+          .row.center
+            i.homepage_icon.fas.fa-utensils.lightGrey_color
+          .row.center
+            i.material-icons.icon-white fiber_manual_record
+          .row.center
+            .navFont recipes
+          //- h1.letterFont r 
+        
+      .col.s3
+        a.linkColor(href='/cart', hover)
+          .row.center
+            i.homepage_icon.fas.fa-shopping-cart.lightGrey_color
+          .row.center
+            i.material-icons.icon-white fiber_manual_record
+          .row.center
+            .navFont cart
+          //- h1.letterFont c 
+            
     
         
 
