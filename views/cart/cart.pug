@@ -1,6 +1,8 @@
 extends ../layout
 
 block content
+  br
+  br
   if error
     span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
 
@@ -32,6 +34,7 @@ block content
     .row
       .col.s12
         .col.s6
+          br
           .card.cart_table
             .card-content
               form(action='/cart/promos', method='POST')
