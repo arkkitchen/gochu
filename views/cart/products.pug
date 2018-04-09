@@ -1,40 +1,85 @@
 extends ../layout
 
 block content
-  .row.shopping-bar
-  .gallery-container
-    .row.center
-      b worded to break up the flow here
-      p more words down here
+  br
+  br
+  .row
+    .col.m1.l1
+    .col.s12.m3.l3
+      h5.privacy_heading.center-align gochu 
+      p.par Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        |Tenetur quae molestiae veniam iste magnam optio soluta sunt 
+        |vel corporis. Tenetur rem molestiae numquam ea culpa quae. 
+        |Cupiditate, at. Incidunt, asperiores.
 
-    .divider
-    .row.gallery
-      .col.s3.left-gallery
-        h4 SAUCE
-        b The Original
+    
+    .col.s12.m3.l3
+        img.materialboxed.prod_img(src='/images/cart/cart_prod.jpg')
+        //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
+    .col.m1.l1
 
-      .col.s9.right-gallery
-        for product in products
-          .col.s12.m6
-            .card.z-depth-0
-              .card-image
-                a(href=`/products/${product.id}`)
-                  img(src=`${product.image}`, alt='product shot')
-                  if product.quantity > 0
-                    span.card-title in-stock
-                  else
-                    span.card-title out-of-stock
+    .col.s12.m3.l3
+      .input-field
+        select.white-text.par
+          option(for='disabled') packs
+          option 3 bottles
+          option 5 bottles
+        br
 
-              .cart-action.center
-                a(href=`/products/${product.product}`)= product.product
-                p.center= product.description
-  .divider.carousel-divider
-  .carousel.carousel-slider
-    a.carousel-item(href='#!')
-      img(src='/images/slide/contrast.jpg', alt='carousel 1')
-    a.carousel-item(href='#!')
-      img(src='/images/slide/cornered.jpg', alt='carousel 2')
-    a.carousel-item(href='#!')
-      img(src='/images/slide/gochu_slide_1.jpg', alt='carousel 3')
-    a.carousel-item(href='#!')
-      img(src='/images/slide/stairs.jpg', alt='carousel 4')
+
+        select.white-text.par
+          option(for='disabled') quantity
+          option 1 
+          option 2
+          option 3
+          option 4
+          option 5
+          option 6
+          option 7
+          option 8
+          option 9
+          option 10          
+        br
+        .input-field
+        input.gc-button.lightGrey_color(type='submit', value=' add to cart ')
+
+
+
+
+  //- .row.shopping-bar
+  //- .gallery-container
+  //-   .row.center
+  //-     b worded to break up the flow here
+  //-     p more words down here
+
+  //-   .divider
+  //-   .row.gallery
+  //-     .col.s3.left-gallery
+  //-       h4 SAUCE
+  //-       b The Original
+
+  //-     .col.s9.right-gallery
+  //-       for product in products
+  //-         .col.s12.m6
+  //-           .card.z-depth-0
+  //-             .card-image
+  //-               a(href=`/products/${product.id}`)
+  //-                 img(src=`${product.image}`, alt='product shot')
+  //-                 if product.quantity > 0
+  //-                   span.card-title in-stock
+  //-                 else
+  //-                   span.card-title out-of-stock
+
+  //-             .cart-action.center
+  //-               a(href=`/products/${product.product}`)= product.product
+  //-               p.center= product.description
+  //- .divider.carousel-divider
+  //- .carousel.carousel-slider
+  //-   a.carousel-item(href='#!')
+  //-     img(src='/images/slide/contrast.jpg', alt='carousel 1')
+  //-   a.carousel-item(href='#!')
+  //-     img(src='/images/slide/cornered.jpg', alt='carousel 2')
+  //-   a.carousel-item(href='#!')
+  //-     img(src='/images/slide/gochu_slide_1.jpg', alt='carousel 3')
+  //-   a.carousel-item(href='#!')
+  //-     img(src='/images/slide/stairs.jpg', alt='carousel 4')

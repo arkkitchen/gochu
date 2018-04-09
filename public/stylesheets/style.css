@@ -3,12 +3,15 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 body {
-  background-color: rgba(171, 184, 190, 0.899);
+  /* background-color: rgba(171, 184, 190, 0.899); */
+  /* background-color: #6fa9d2; */
+  /* background: radial-gradient(circle, #9A9A9A, #B5B5B5, #D1D1D1, #D7D7D7); */
+  background: radial-gradient(circle, #D7D7D7, #D1D1D1, #B5B5B5, #9A9A9A);
   background-size: cover;
   background-position: 50%;
   display: flex;
   min-height: 100vh;
-    flex-direction: column
+  flex-direction: column
 }
  main {
   flex: 1 0 auto;
@@ -25,8 +28,7 @@ body {
 
 #bookmarks{
   height: 600px;
-  padding-top: 12%;
-  padding-left: 14%
+  padding-top: 10%
 }
 
 .letterFont{
@@ -58,6 +60,21 @@ i.icon-white{
   letter-spacing: 4px;
   font-weight: bolder
 }
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+  border-bottom: 1px solid white
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: #333333;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid purple;
+  box-shadow: 0 1px 0 0 purple;
+}
+
+
 
 /* main {
   flex: 1 0 auto;

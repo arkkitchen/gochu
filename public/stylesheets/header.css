@@ -1,8 +1,11 @@
 
 #homepage{
-    background-image: url(../images/slide/stairs.jpg);
+    background-image: url(../images/slide/blue.jpg);
     background-size: cover;
-    background-position: 50%
+    background-position: 50%;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center
   }
   
   nav{
@@ -23,5 +26,10 @@
   }
 
   .fa_icon{
+    font-size: 18px
+  }
+
+  #pLink{
+    margin-top: -5px;
     font-size: 18px
   }

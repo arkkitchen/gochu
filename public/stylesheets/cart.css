@@ -2,3 +2,11 @@
     background-color: transparent;
     box-shadow: none
 }
+
+hr{
+    border: .5px solid white
+}
+
+.bordered{
+    border-bottom-color: white
+}

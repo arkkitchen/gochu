@@ -6,20 +6,20 @@ header
 
       ul.right.hide-on-med-and-down
         li
-          //- instagram
           a.link(href='/#', hover)
             i.fa_icon.fab.fa-facebook.lightGrey_color
-            //- i.material-icons.lightGrey_color center_focus_weak
 
         li
-          //- facebook
           a.link(href='/#', hover)
             i.fa_icon.fab.fa-instagram
-            //- i.material-icons.lightGrey_color font_download            
+
+        li
+          a.link(href='/products', hover)    
+            i.fa_icon.fas.fa-cube.lightGrey_color
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
-              span.blue-text Welcome, #{user.first_name}
+              span.par welcome, #{user.first_name}
         else
           li
             a.link.lightGrey_color(href='/auth/login') LOGIN 
@@ -30,26 +30,21 @@ header
               li
                 i.material-icons.lightGrey_color shopping_cart
               li.white-text (#{cart_info.items})
-        if user
-          li.user-tab.center
-            a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
-              span.blue-text Welcome, #{user.first_name}
-
 
       a.right.button-collapse.link(href='#', data-activates='nav-mobile')
         i.material-icons menu
       ul#user-dropdown.dropdown-content
         li
-          a(href='/cart/history') order history
+          a.par.grey-text.text-darken-3(href='/cart/history') order history
         li
-          a(href='/auth/logout') logout
+          a.par.grey-text.text-darken-3(href='/auth/logout') logout
         li.divider
 
       ul#user-nav-dropdown.dropdown-content
         li
-          a(href='/cart/history') order history
+          a.par.grey-text.text-darken-3(href='/cart/history') order history
         li
-          a(href='/auth/logout') logout
+          a.par.grey-text.text-darken-3(href='/auth/logout') logout
         li.divider
 
       //-   if user
