@@ -1,15 +1,18 @@
 extends ../layout
 
 block content
+  if error
+    span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
+    
   center
     h2.pageTitle LOGIN
 
   center
-    .row 
+    .row
       .col.s12
         .col.s3
         .col.s6
-          form#login-form(action='/auth/login', method='POST')
+          form(action='/auth/login', method='POST')
             .input-field
               //- i.material-icons mail
               input#email(type='email', name='email')
@@ -18,7 +21,7 @@ block content
             .input-field
               //- i.material-icons fingerprint
               input.par#password(type='password', name='password')
-            label.white-text.par password          
+            label.white-text.par password
             br
             br
             .input-field

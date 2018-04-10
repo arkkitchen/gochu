@@ -51,16 +51,16 @@ router.get('/products/:product', (req, res, next) => {
   // TODO: catch err
   Products().where({id: req.params.product}).select().first().then((product) => {
     let data = _.get(req, 'session');
-    data.product = product;
-    res.render('cart/product', data);
+    // let product = product;
+    res.render('cart/product', {data, product});
   })
 });
 
 router.get('/products', (req, res, next) => {
   Products().select().then((products) => {
-    let data = _.get(req, 'session');
-    data.products = products;
-    res.render('cart/products', data);
+    let data = _.cloneDeep(_.get(req, 'session'));
+    // let products = products;
+    res.render('cart/products', {data, products});
   })
 });
 

@@ -31,19 +31,25 @@ router.post('/login', (req, res, next) => {
   Users().where({email: req.body.email}).select().first().then((user) => {
     if(_.isEmpty(user)) {
       let data = _.get(req, 'session');
-      data.error = 'User not found';
-      res.render('auth/signup', data);
+      let error = 'User not found';
+      res.render('auth/signup', {data, error});
     } else {
       let valid = utils.comparePass(req.body.password, user.password);
       if(valid){
         req.session.user = user;
-        req.session.save((err) => {
-          res.redirect('/');
-        })
+        if(user.admin) {
+          req.session.save((err) => {
+            res.redirect('/admin')
+          })
+        } else {
+          req.session.save((err) => {
+            res.redirect('/');
+          })
+        }
       } else {
         let data = _.get(req, 'session');
-        data.error = 'looks like you dont have an accocunt yet';
-        res.render('auth/signup', data);
+        let error = 'looks like you dont have an accocunt yet';
+        res.render('auth/signup', {data, error});
       }
     }
   })
@@ -62,8 +68,8 @@ router.post('/signup', (req, res, next) => {
   })
   .catch((err) => {
     let data = _.get(req, 'session');
-    data.error = 'looks like you dont have an accocunt yet';
-    res.render('auth/signup', data)
+    let error = 'looks like you dont have an accocunt yet';
+    res.render('auth/signup', {data, error})
   })
 });
 

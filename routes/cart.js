@@ -19,22 +19,23 @@ function Promos(){
 }
 
 router.get('/', (req, res, next) => {
-  let data =  _.get(req, 'session');
-  data.key = keyPublishable;
+  let session =  _.get(req, 'session');
+  let key = keyPublishable;
 
-  res.render('cart/cart', data);
+  console.log(data);
+
+  res.render('cart/cart', {session, key});
 });
 
 router.post('/promos', (req, res, next) => {
   Promos().where({code: req.body.code}).select().first().then((promo) => {
-    console.log(promo);
     let data = _.get(req, 'session');
     if(_.isEmpty(promo)) {
-      data.error = 'invalid promo code';
-      res.render('cart/cart', data);
+      let error = 'invalid promo code';
+      res.render('cart/cart', {data, error});
     } else {
-      data.promo = promo;
-      res.render('cart/cart', data);
+      let promo = promo;
+      res.render('cart/cart', {data, promo});
     }
   });
 });
@@ -84,13 +85,20 @@ router.get('/charge', (req, res, next) => {
   //     console.log('Addresses: ', addresses);
       let shipping = 5.00;
       let data = _.get(req, 'session');
-      let total = _.get(data, 'cart_info.total') + shipping
-      data.keyPublishable = keyPublishable;
-      data.shipping = shipping;
-      data.cart_total = total;
-      data.stripe_total = total * 100;
+      let vol  = {};
+      vol.total = _.get(data, 'cart_info.total') + shipping
+      vol.keyPublishable = keyPublishable;
+      vol.shipping = shipping;
+      vol.cart_total = total;
+      vol.stripe_total = total * 100;
 
-      res.render('cart/charge', data);
+      console.log("DATA: ", data);
+
+      if(_.isEmpty(data.user)) {
+        res.render('cart/charge_guest', {data, vol});
+      } else {
+        res.render('cart/charge_user', {data, vol});
+      }
     // });
 });
 

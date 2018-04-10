@@ -49,7 +49,7 @@ app.use(utils.getSession);
 app.use('/', index);
 app.use('/auth', auth);
 app.use('/cart', cart);
-app.use('/admin', utils.requiresLogin, admin);
+app.use('/admin', utils.requiresAdmin, admin);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

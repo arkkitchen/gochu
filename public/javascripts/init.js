@@ -1,5 +1,7 @@
 (function($){
   $(function(){
+    $('#billing').hide();
+
     $('.dropdown-button').dropdown({
       hover: true,
       belowOrigin: true,
@@ -9,7 +11,7 @@
     $('.parallax').parallax();
     $('.modal').modal();
     $('#alt_address_check').click(()=>{
-      $('#alt_address').toggle();
+      $('#billing').toggle();
     });
   });
 })(jQuery);
