@@ -19,23 +19,23 @@ function Promos(){
 }
 
 router.get('/', (req, res, next) => {
-  let session =  _.get(req, 'session');
-  let key = keyPublishable;
+  let data =  _.cloneDeep(_.get(req, 'session'));
+  _.merge(data, {keyPublishable});
 
   console.log(data);
 
-  res.render('cart/cart', {session, key});
+  res.render('cart/cart', data);
 });
 
 router.post('/promos', (req, res, next) => {
   Promos().where({code: req.body.code}).select().first().then((promo) => {
-    let data = _.get(req, 'session');
+    let data = _.cloneDeep(_.get(req, 'session'));
     if(_.isEmpty(promo)) {
-      let error = 'invalid promo code';
-      res.render('cart/cart', {data, error});
+      _.merge(data, {error: 'invalid promo code'});
+      res.render('cart/cart', data);
     } else {
-      let promo = promo;
-      res.render('cart/cart', {data, promo});
+      _.merge(data, {promo});
+      res.render('cart/cart', data);
     }
   });
 });
@@ -43,6 +43,8 @@ router.post('/promos', (req, res, next) => {
 router.post('/:product_id', (req, res, next) => {
   let cart =  _.get(req, 'session.cart', []);
   let exists = _.findIndex(cart, (n) => { return n.id == _.get(req, 'body.id'); });
+
+  console.log("WHAT IS HAPPENING: ", cart);
 
   if(exists > -1) {
     let newTotal = Number(cart[exists].quantity) + Number(_.get(req, 'body.quantity'))
@@ -60,6 +62,7 @@ router.post('/:product_id', (req, res, next) => {
 });
 
 router.post('/charge', (req, res, next) => {
+  //
   let amount = 500;
   stripe.customers.create({
     email: req.body.stripeEmail,
@@ -74,7 +77,7 @@ router.post('/charge', (req, res, next) => {
    }))
   .then(charge => {
     console.log(charge);
-    res.render('cart/reciept.pug', {charge})
+    res.render('cart/reciept.pug', charge);
   });
 });
 
@@ -83,22 +86,22 @@ router.get('/charge', (req, res, next) => {
   //   .where({'users.id': _.get(req, 'session.user.id')})
   //   .select().then((addresses) => {
   //     console.log('Addresses: ', addresses);
-      let shipping = 5.00;
-      let data = _.get(req, 'session');
-      let vol  = {};
-      vol.total = _.get(data, 'cart_info.total') + shipping
-      vol.keyPublishable = keyPublishable;
-      vol.shipping = shipping;
-      vol.cart_total = total;
-      vol.stripe_total = total * 100;
+  let shipping = 5.00;
+  let data = _.get(req, 'session');
+  let vol  = {};
+  let total = _.get(data, 'cart_info.total') + shipping
+  vol.keyPublishable = keyPublishable;
+  vol.shipping = shipping;
+  vol.cart_total = total;
+  vol.stripe_total = total * 100;
 
-      console.log("DATA: ", data);
+  _.merge(data, vol);
 
-      if(_.isEmpty(data.user)) {
-        res.render('cart/charge_guest', {data, vol});
-      } else {
-        res.render('cart/charge_user', {data, vol});
-      }
+  if(_.isEmpty(data.user)) {
+    res.render('cart/charge_guest', data);
+  } else {
+    res.render('cart/charge_user', data);
+  }
     // });
 });
 

@@ -32,31 +32,33 @@ block content
                     td $#{product.price}
                     td $#{product.total}
     .row
-      .col.s12
-        .col.s6
-          br
-          .card.cart_table
-            .card-content
-              form(action='/cart/promos', method='POST')
-                p.par Have a Promo code?
-                .input-field
-                  input.validate(name='promo', type='text')
-                label.white-text.par promo code
-                  br
-                  br
-                  input.gc-button.lightGrey_color.par(type='submit', value='apply')
-        .col.s6
-          .card.cart_table
-            .card-content
-              h5.par Order Summary
-              hr
-                span.right $#{cart_info.total}
-              hr
-              p.par Shipping
-                span.right $#{5.00}
-              hr
-              p.par Shipping
-                span.right $#{5.00}
-              br
-              br
-            a.gc-button.lightGrey_color.par(href='/cart/charge') checkout
+      .col.s6
+        br
+        .card.cart_table
+          .card-content
+            form(action='/cart/promos', method='POST')
+              p.par Have a Promo code?
+              .input-field
+                input.validate(name='promo', type='text')
+              label.white-text.par promo code
+                br
+                br
+                input.gc-button.lightGrey_color.par(type='submit', value='apply')
+      .col.s6
+        .card.cart_table
+          .card-content
+            h5.par Order Summary
+            p
+              span.right $#{cart_info.total}
+            p.par Shipping
+              span.right $#{5.00}
+            hr
+            p.par Shipping
+              span.right $#{5.00}
+            br
+            hr
+            br
+            p.par Total
+              span.right $#{cart_info.total}
+            p
+              a.gc-button.lightGrey_color.par(href='/cart/charge') proceed to checkout

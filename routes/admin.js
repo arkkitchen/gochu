@@ -7,7 +7,7 @@ const utils = require('../lib/utils');
 
 router.get('/', (err, req, res, next) => {
   if(err) {
-    res.render('/auth/login', { error: 'requires admin access'})
+    res.render('/auth/login', {error: 'requires admin access'})
   } else {
     res.render('admin/index', {admin: 'true'});
   }
