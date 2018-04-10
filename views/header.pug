@@ -10,7 +10,7 @@ header
             i.fa_icon.fab.fa-facebook.lightGrey_color
 
         li
-          a.link(href='/#', hover)
+          a.link(href='https://www.instagram.com/gochukitchen/', hover)
             i.fa_icon.fab.fa-instagram
 
         li
@@ -47,25 +47,35 @@ header
           a.par.grey-text.text-darken-3(href='/auth/logout') logout
         li.divider
 
-      //-   if user
-      //-     li.user-tab.center
-      //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
-      //-         span.blue-text Welcome, #{user.first_name}
-      //-   else
-      //-     li.center
-      //-       a.link.white-text(href='/auth/login') LOGIN
+      //- SIDE NAV BEGINS
 
-      //-   li.center
-      //-     a.link.white-text.center(href='/cart')
-      //-       ul
-      //-         i.material-icons.blue-text shopping_cart
-      //- ul#nav-mobile.side-nav.grey.right
-      //-   li.center
-      //-     a.link.white-text(href='/products') SAUCE
-      //-   li.center
-      //-     a.link.white-text(href='/recipes') RECIPES
-      //-   li.center
-      //-     a.link.white-text(href='/blog') LEARN
+      ul#nav-mobile.side-nav.blue-grey.lighten-5.right
+        li.center
+          a.link.grey-text(href='/products') products
+        li.center
+          a.link.grey-text(href='/blog') blog
+        li.center
+          a.link.grey-text(href='/about') our story
+        li.center
+          a.link.grey-text(href='/faq') faq
+        li.center
+          a.link.grey-text(href='/contact') contact us
+        li.center
+          a.link.grey-text(href='/privacy') privacy and terms
+        if user
+          li.user-tab.center
+            a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
+              span.blue-text Welcome, #{user.first_name}
+        else
+          li.center
+            a.link.grey-text(href='/auth/login') login
+
+        li.center
+          a.link.white-text.center(href='/cart')
+            ul
+              i.material-icons.blue-text shopping_cart
+
+
       //-   if user
       //-     li.user-tab.center
       //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)

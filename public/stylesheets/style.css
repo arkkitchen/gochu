@@ -15,6 +15,7 @@ body {
 }
  main {
   flex: 1 0 auto;
+  padding: 30px
 }
 
 .gc-logo {
@@ -26,10 +27,10 @@ body {
   padding-top: 2em
 }
 
-#bookmarks{
+/* #bookmarks{
   height: 600px;
   padding-top: 10%
-}
+} */
 
 .letterFont{
   color: #fafafacd;
@@ -53,9 +54,9 @@ i.icon-white{
 }
 
 .navFont{
-  color: white;
   /* color:  rgba(206, 46, 38, 0.728); */
-  font-size: 18px;
+  color: white;
+  font-size: 14px;
   font-family: Comfortaa;
   letter-spacing: 4px;
   font-weight: bolder
@@ -74,6 +75,9 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   box-shadow: 0 1px 0 0 purple;
 }
 
+.grey-text{
+  color: #212121
+}
 
 
 /* main {
