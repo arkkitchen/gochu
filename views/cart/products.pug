@@ -3,89 +3,87 @@ extends ../layout
 block content
   br
   br
-  .row
+  for product in products
+    .row
+      .col.s12.l4
+        h5.privacy_heading.center-align gochu
+        p.par Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          |Tenetur quae molestiae veniam iste magnam optio soluta sunt
+          |vel corporis. Tenetur rem molestiae numquam ea culpa quae.
+          |Cupiditate, at. Incidunt, asperiores.
 
-    .col.s12.l3.offset-l1.prod_pads
-      h5.privacy_heading.center-align gochu 
-      br
-      p.par Gochu's made from a premium blend of sugar and spice AND all those 
-            | good things added onto a foundation of an aged fermented bean paste 
-            | called Gochujang in Korean. 
-      p.par We know how it sounds, but hang on. 
-      p.par Before you go crinkling your nose, this stuff's been a staple of Korean cuisine for  
-            | cuisine for centuries, and only now are we finding out just how crazy good 
-            | it is for you.
-      
+      .col.s12.l4
+          img.materialboxed.prod_img(src=`${product.image}`)
+          //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
+      .col.s12.l4
+        form(action=`/cart/${product.id}`, method='POST')
+          .input-field
+            select.white-text.par
+              option(value='', disabled, selected) choose option
+              option(value=3) 3 bottles
+              option(value=5) 5 bottles
+              label Packs
+            br
 
-                
-    .col.s12.l3.offset-l1.prod_pads
-      br
-      img.materialboxed.prod_img.center-align(src='/images/cart/cart_prod.jpg')
-      //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
+          .input-field
+            select.white-text.par(name='quantity')
+              option(value='', disabled, selected) choose option
+              option(value=1) 1
+              option(value=2) 2
+              option(value=3) 3
+              option(value=4) 4
+              option(value=5) 5
+              option(value=6) 6
+              option(value=7) 7
+              option(value=8) 8
+              option(value=9) 9
+              option(value=10) 10
+              label Amount
+            .input-field.hide
+                input.hide(type='text', name='price', value=`${product.price}`)
+                input.hide(type='text', name='product', value=`${product.product}`)
+                input.hide(type='text', name='id', value=`${product.id}`)
+                input.hide(type='text', name='image', value=`${product.image}`)
+                input.hide(type='number', name='update', value=1)
 
+            br
+            .input-field
+              input.gc-button.lightGrey_color(type='submit', value=' add to cart ')
 
-    .col.s12.l3.offset-l1.prod_pads
-      .input-field
-        select.white-text.par
-          option(for='disabled') packs
-          option 3 bottles
-          option 5 bottles
-        br
+    //- .row.shopping-bar
+    //- .gallery-container
+    //-   .row.center
+    //-     b worded to break up the flow here
+    //-     p more words down here
 
+    //-   .divider
+    //-   .row.gallery
+    //-     .col.s3.left-gallery
+    //-       h4 SAUCE
+    //-       b The Original
 
-        select.white-text.par
-          option(for='disabled') quantity
-          option 1 
-          option 2
-          option 3
-          option 4
-          option 5
-          option 6
-          option 7
-          option 8
-          option 9
-          option 10          
-        br
-        .input-field
-        input.gc-button.lightGrey_color(type='submit', value=' add to cart ')
+    //-     .col.s9.right-gallery
+    //-       for product in products
+    //-         .col.s12.m6
+    //-           .card.z-depth-0
+    //-             .card-image
+    //-               a(href=`/products/${product.id}`)
+    //-                 img(src=`${product.image}`, alt='product shot')
+    //-                 if product.quantity > 0
+    //-                   span.card-title in-stock
+    //-                 else
+    //-                   span.card-title out-of-stock
 
-
-
-
-  //- .row.shopping-bar
-  //- .gallery-container
-  //-   .row.center
-  //-     b worded to break up the flow here
-  //-     p more words down here
-
-  //-   .divider
-  //-   .row.gallery
-  //-     .col.s3.left-gallery
-  //-       h4 SAUCE
-  //-       b The Original
-
-  //-     .col.s9.right-gallery
-  //-       for product in products
-  //-         .col.s12.m6
-  //-           .card.z-depth-0
-  //-             .card-image
-  //-               a(href=`/products/${product.id}`)
-  //-                 img(src=`${product.image}`, alt='product shot')
-  //-                 if product.quantity > 0
-  //-                   span.card-title in-stock
-  //-                 else
-  //-                   span.card-title out-of-stock
-
-  //-             .cart-action.center
-  //-               a(href=`/products/${product.product}`)= product.product
-  //-               p.center= product.description
-  //- .divider.carousel-divider
-  //- .carousel.carousel-slider
-  //-   a.carousel-item(href='#!')
-  //-     img(src='/images/slide/contrast.jpg', alt='carousel 1')
-  //-   a.carousel-item(href='#!')
-  //-     img(src='/images/slide/cornered.jpg', alt='carousel 2')
-  //-   a.carousel-item(href='#!')
-  //-     img(src='/images/slide/gochu_slide_1.jpg', alt='carousel 3')
-  //-   a.carousel-item(href='#!')
-  //-     img(src='/images/slide/stairs.jpg', alt='carousel 4')
+    //-             .cart-action.center
+    //-               a(href=`/products/${product.product}`)= product.product
+    //-               p.center= product.description
+    //- .divider.carousel-divider
+    //- .carousel.carousel-slider
+    //-   a.carousel-item(href='#!')
+    //-     img(src='/images/slide/contrast.jpg', alt='carousel 1')
+    //-   a.carousel-item(href='#!')
+    //-     img(src='/images/slide/cornered.jpg', alt='carousel 2')
+    //-   a.carousel-item(href='#!')
+    //-     img(src='/images/slide/gochu_slide_1.jpg', alt='carousel 3')
+    //-   a.carousel-item(href='#!')
+    //-     img(src='/images/slide/stairs.jpg', alt='carousel 4')

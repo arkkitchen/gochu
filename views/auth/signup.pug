@@ -7,12 +7,12 @@ block content
   center
     h2.pageTitle SIGN UP
 
-    .row 
+    .row
       .col.s12
         .col.s3
         .col.s6
           center
-            form#login-form(action='/auth/signup', method='POST')
+            form(action='/auth/signup', method='POST')
               .input-field
                 //- i.material-icons person
                 input#email(type='text', name='first_name')
@@ -30,9 +30,9 @@ block content
                 br
               .input-field
                 input#password(type='password', name='password')
-              label.white-text.par password    
+              label.white-text.par password
                 br
-                br         
+                br
               .input-field
                 input.gc-button(type='submit', value=' SIGN UP ')
                 br

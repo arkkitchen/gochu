@@ -156,10 +156,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   text-align: center;
 }
 
-#login-form {
-  width: 30em;
-}
-
+.checkout
 .social {
   margin: 5px;
 }
@@ -196,7 +193,7 @@ nav {
 
 .parallax-img {
   opacity: 0.7;
-  filter: alpha(opacity=50);  For IE8 and earlier 
+  filter: alpha(opacity=50);  For IE8 and earlier
 }
 
 .shopping-bar {

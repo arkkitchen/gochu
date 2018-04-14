@@ -1,4 +1,24 @@
-br
-br
-br
-h4.pageTitle.center-align user
+extends ../layout
+
+block content
+  .checkout
+    .row.checkout-list
+      .col.s6.offset-s3.white-text.par
+        h5.pageTitle Your Order
+        hr
+        p Cart Totals
+          span.right $#{cart_info.total}
+        p Shipping
+          span.right $#{shipping}
+        hr
+        p Total
+          span.right $#{cart_info.total}
+        form(action='/cart/charge', method='POST')
+          script(
+            src='//checkout.stripe.com/v2/checkout.js',
+            class='stripe-button',
+            data-key=keyPublishable,
+            data-locale='auto',
+            data-description='Sample Charge',
+            data-amount=`${stripe_total}`
+        )

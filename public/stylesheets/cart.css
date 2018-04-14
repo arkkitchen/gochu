@@ -10,3 +10,13 @@ hr{
 .bordered{
     border-bottom-color: white
 }
+
+.updateQuant {
+    width: 5rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.checkout {
+    padding: 5rem;
+}

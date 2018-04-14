@@ -30,19 +30,25 @@ router.post('/login', (req, res, next) => {
   //TODO reinitialiaze cart
   Users().where({email: req.body.email}).select().first().then((user) => {
     if(_.isEmpty(user)) {
-      let data = _.get(req, 'session');
-      data.error = 'User not found';
+      let data = _.cloneDeep(_.get(req, 'session'));
+      _.merge(data, {error: 'User not found'});
       res.render('auth/signup', data);
     } else {
       let valid = utils.comparePass(req.body.password, user.password);
       if(valid){
         req.session.user = user;
-        req.session.save((err) => {
-          res.redirect('/');
-        })
+        if(user.admin) {
+          req.session.save((err) => {
+            res.redirect('/admin')
+          })
+        } else {
+          req.session.save((err) => {
+            res.redirect('/');
+          })
+        }
       } else {
-        let data = _.get(req, 'session');
-        data.error = 'looks like you dont have an accocunt yet';
+        let data = _.cloneDeep(_.get(req, 'session'));
+        _.merge(data, {error: 'looks like you dont have an accocunt yet'});
         res.render('auth/signup', data);
       }
     }
@@ -61,9 +67,9 @@ router.post('/signup', (req, res, next) => {
     res.redirect('/');
   })
   .catch((err) => {
-    let data = _.get(req, 'session');
-    data.error = 'looks like you dont have an accocunt yet';
-    res.render('auth/signup', data)
+    let data = _.cloneDeep(_.get(req, 'session'));
+    _.merge(data, {error: 'looks like you dont have an accocunt yet'});
+    res.render('auth/signup', {data, error})
   })
 });
 

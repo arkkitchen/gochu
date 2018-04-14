@@ -9,7 +9,8 @@ function Products(){
   return knex('products');
 }
 
-router.get('/', utils.getSession, (req, res, next) => {
+router.get('/', (req, res, next) => {
+  console.log("GOT HERE");
   console.log(req.session);
   // req.session.destroy();
   res.render('index', _.get(req, 'session'));
@@ -50,16 +51,16 @@ router.get('/privacy', (req, res, next) => {
 router.get('/products/:product', (req, res, next) => {
   // TODO: catch err
   Products().where({id: req.params.product}).select().first().then((product) => {
-    let data = _.get(req, 'session');
-    data.product = product;
+    let data = _.cloneDeep(_.get(req, 'session'));
+    _.merge(data, product);
     res.render('cart/product', data);
   })
 });
 
 router.get('/products', (req, res, next) => {
   Products().select().then((products) => {
-    let data = _.get(req, 'session');
-    data.products = products;
+    let data = _.cloneDeep(_.get(req, 'session'));
+    _.merge(data, {products});
     res.render('cart/products', data);
   })
 });

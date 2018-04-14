@@ -12,17 +12,14 @@ header
         li
           a.link(href='https://www.instagram.com/gochukitchen/', hover)
             i.fa_icon.fab.fa-instagram
-
-        li
-          a.link(href='/products', hover)    
-            i.fa_icon.fas.fa-cube.lightGrey_color
+            //- i.material-icons.lightGrey_color font_download
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
               span.par welcome, #{user.first_name}
         else
           li
-            a.link.lightGrey_color(href='/auth/login') LOGIN 
+            a.link.lightGrey_color(href='/auth/login') LOGIN
 
         li
           a.link(href='/cart', hover)
@@ -84,10 +81,10 @@ header
       //-     li.center
       //-       a.link.white-text(href='/auth/login') LOGIN
 
-      //-   li.center
-      //-     a.link.white-text.center(href='/cart')
-      //-       ul
-      //-         i.material-icons.blue-text shopping_cart
+        li.center
+          a.link.white-text.center(href='/cart')
+            ul
+              i.material-icons.blue-text shopping_cart
 
       //- a.right.button-collapse.link(href='#', data-activates='nav-mobile')
       //-   i.material-icons menu
