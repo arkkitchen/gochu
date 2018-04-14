@@ -13,24 +13,38 @@ block content
           .card-content
             h5.privacy_heading You have #{cart_info.items} Item in Your Cart
             hr
-            table.bordered.centered
-              thead
-                tr
-                  th.par Item
-                  th.par Quantity
-                  th.par Price
-                  th.par Total
-              tbody
-                for product in cart
-                  tr
-                    td
-                      .chip
-                        img(src=`${product.image}`, alt='product shot')
-                        b= product.product
+            .row
+              .col.s3
+                h3.par item
 
-                    td= product.quantity
-                    td $#{product.price}
-                    td $#{product.total}
+              .col.s3
+                h3.par quantity
+
+              .col.s3
+                h3.par price
+              .col.s3
+
+            for product in cart
+              .row
+                form(action=`/cart/${product.id}`, method='POST')
+                  .col.s3
+                    .chip
+                      img(src=`${product.image}`, alt='product shot')
+                      b= product.product
+                  .col.s3
+                    .input-field.updateQuant
+                      input(type='number', name='quantity', value=product.quantity, min='0')
+                    .input-field.hide
+                      input.hide(type='text', name='price', value=`${product.price}`)
+                      input.hide(type='text', name='product', value=`${product.product}`)
+                      input.hide(type='text', name='id', value=`${product.id}`)
+                      input.hide(type='text', name='image', value=`${product.image}`)
+                      input.hide(type='number', name='update', value=1)
+                  .col.s3
+                    p.par $#{product.price}
+                  .col.s3
+                    input.gc-button.lightGrey.par(type='submit', value='apply')
+
     .row
       .col.s6
         br
@@ -39,7 +53,7 @@ block content
             form(action='/cart/promos', method='POST')
               p.par Have a Promo code?
               .input-field
-                input.validate(name='promo', type='text')
+                input.validate(name='code', type='text')
               label.white-text.par promo code
                 br
                 br
@@ -48,17 +62,16 @@ block content
         .card.cart_table
           .card-content
             h5.par Order Summary
-            p
+            p.par SUBTOTAL
               span.right $#{cart_info.total}
-            p.par Shipping
-              span.right $#{5.00}
+
+            if promo
+              hr
+              p.par PROMO
+                span.right -#{promo.value}
+
             hr
-            p.par Shipping
-              span.right $#{5.00}
-            br
-            hr
-            br
-            p.par Total
-              span.right $#{cart_info.total}
-            p
-              a.gc-button.lightGrey_color.par(href='/cart/charge') proceed to checkout
+            p.par TOTAL
+              span.right $#{cart_info.gross}
+          .card-action.center
+            a.gc-button.lightGrey_color.par.white-text(href='/cart/shipping') proceed to shipping

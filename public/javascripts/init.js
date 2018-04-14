@@ -1,7 +1,6 @@
 (function($){
   $(function(){
     $('#billing').hide();
-
     $('.dropdown-button').dropdown({
       hover: true,
       belowOrigin: true,

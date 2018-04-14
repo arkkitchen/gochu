@@ -61,7 +61,6 @@ router.get('/products', (req, res, next) => {
   Products().select().then((products) => {
     let data = _.cloneDeep(_.get(req, 'session'));
     _.merge(data, {products});
-    console.log("PRODUCTS: ", data);
     res.render('cart/products', data);
   })
 });
