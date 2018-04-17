@@ -1,3 +1,8 @@
-ul.side-nav
-  li
-    a(href='#') Admin
+extends ../admin-layout
+
+block content
+  ul#slide-out.side-nav.fixed
+    li
+      a(href='#!') Admin
+    li
+      a(href='/auth/logout') Logout

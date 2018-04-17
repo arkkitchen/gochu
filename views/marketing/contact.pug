@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+  .container
+    .row.background
+      .cols12
+        h1.pageTitle.center-align CONTACT US
+    .row
+      .col.l1
+      .col.l5
+        h3.privacy_heading.left-align LOCATION - Home Kitchen of
+          h4.par 9939 Longview Dr., Lone Tree, CO, 80124
+        br
+        h3.privacy_heading.left-align PHONE
+          h4.par 720.290.8987
+        br
+        h3.privacy_heading.left-align EMAIL
+          h4.par contact@gochukitchen.com
+        br
+
+      .col.l1
+      .col.l5
+        h3.privacy_heading.left-align GET IN TOUCH
+
+        form(method='POST', action=`/contact`)
+          .input-field.col.s12
+            input(type='text', id='name').validate.white-text.par
+            label.white-text.par name
+
+          .input-field.col.s12
+            input(type='text', id='email').validate.white-text.par
+            label.white-text.par email
+
+          .input-field.col.s12
+            select.white-text.par
+              option subject
+              option general question
+              option online order
+              option wholesale inquiry
+              option press inquiry
+
+          .input-field.col.s12
+            textarea#icon_prefix2.materialize-textarea.validate.white-text.par
+            label.white-text.par message
+
+          .input-field
+            input.gc-button.lightGrey_color(type='submit', value=' SUBMIT ')

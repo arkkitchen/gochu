@@ -1,14 +1,86 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 body {
+  /* background-color: rgba(171, 184, 190, 0.899); */
+  /* background-color: #6fa9d2; */
+  /* background: radial-gradient(circle, #9A9A9A, #B5B5B5, #D1D1D1, #D7D7D7); */
+  background: radial-gradient(circle, #D7D7D7, #D1D1D1, #B5B5B5, #9A9A9A);
+  background-size: cover;
+  background-position: 50%;
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
-  color: rgba(168, 168, 168, 1);
+  flex-direction: column
+}
+ main {
+  flex: 1 0 auto;
+  padding: 30px
 }
 
-main {
+.gc-logo {
+  width: 6em;
+}
+
+.gc-logo-2 {
+  width: 10em;
+  padding-top: 2em
+}
+
+/* #bookmarks{
+  height: 600px;
+  padding-top: 10%
+} */
+
+.letterFont{
+  color: #fafafacd;
+  font-size: 150px;
+  font-family: Comfortaa;
+  letter-spacing: 4px;
+  font-weight: regular
+}
+
+/* use a:active --> mouse hovers, action happens*/
+a:hover.linkColor i{
+  /* background-color: rgba(206, 46, 38, 0.577) */
+  background-color:#a8a8a898
+  /* background-color: rgba(0, 0, 255, 0.563); */
+}
+
+i.icon-white{
+  /* color: rgba(255, 255, 255, 0.673); */
+  color: #151515e2;
+  font-size: 22px
+}
+
+.navFont{
+  /* color:  rgba(206, 46, 38, 0.728); */
+  color: white;
+  font-size: 14px;
+  font-family: Comfortaa;
+  letter-spacing: 4px;
+  font-weight: bolder
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+  border-bottom: 1px solid white
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: #333333;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid purple;
+  box-shadow: 0 1px 0 0 purple;
+}
+
+.grey-text{
+  color: #212121
+}
+
+
+/* main {
   flex: 1 0 auto;
 }
 
@@ -36,7 +108,6 @@ main {
   color: black
 }
 .KT_card_content {
-  /*font-family: Montserrat;*/
   font-family: source code pro;
   font-size: 15px;
   color: #2a2a2a;
@@ -48,11 +119,11 @@ main {
   letter-spacing: 4px;
   font-size: 10px;
   color: black
-}
+} */
 /* HOMEPAGE CARDS ENDS */
 
 
-.gc-logo {
+/* .gc-logo {
   width: 6em;
 }
 
@@ -85,10 +156,7 @@ main {
   text-align: center;
 }
 
-#login-form {
-  width: 30em;
-}
-
+.checkout
 .social {
   margin: 5px;
 }
@@ -125,7 +193,7 @@ nav {
 
 .parallax-img {
   opacity: 0.7;
-  filter: alpha(opacity=50); /* For IE8 and earlier */
+  filter: alpha(opacity=50);  For IE8 and earlier
 }
 
 .shopping-bar {
@@ -154,4 +222,4 @@ nav {
 
 .product-shot {
   max-width: 300px;
-}
+} */

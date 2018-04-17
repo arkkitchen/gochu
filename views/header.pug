@@ -1,77 +1,115 @@
 header
-  nav.white.z-depth-0(role='navigation')
+  nav(role='navigation')
     .nav-wrapper
       a#logo-container.brand-logo.left(href='/')
         img.gc-logo(src='/images/gochuKitchen_bw_logo.png' alt='go chu logo')
+
       ul.right.hide-on-med-and-down
         li
-          a.link(href='/products') SAUCE
+          a.link(href='/#', hover)
+            i.fa_icon.fab.fa-facebook.lightGrey_color
 
         li
-          a.link(href='/recipes') RECIPES
-
-        li
-          a.black-text.dropdown-button(href='#!', data-activates='learn-dropdown', hover) LEARN
-
+          a.link(href='https://www.instagram.com/gochukitchen/', hover)
+            i.fa_icon.fab.fa-instagram
+            //- i.material-icons.lightGrey_color font_download
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
-              span.blue-text Welcome, #{user.first_name}
+              span.par welcome, #{user.first_name}
         else
           li
-            a.link(href='/auth/login') LOGIN
+            a.link.lightGrey_color(href='/auth/login') LOGIN
 
         li
-          a.link(href='/cart')
+          a.link(href='/cart', hover)
             ul
               li
-                i.material-icons.blue-text shopping_cart
-              li.blue-text (#{cart_info.items})
+                i.material-icons.lightGrey_color shopping_cart
+              li.white-text (#{cart_info.items})
 
-      ul#nav-mobile.side-nav.grey.right
+      a.right.button-collapse.link(href='#', data-activates='nav-mobile')
+        i.material-icons menu
+      ul#user-dropdown.dropdown-content
+        li
+          a.par.grey-text.text-darken-3(href='/cart/history') order history
+        li
+          a.par.grey-text.text-darken-3(href='/auth/logout') logout
+        li.divider
+
+      ul#user-nav-dropdown.dropdown-content
+        li
+          a.par.grey-text.text-darken-3(href='/cart/history') order history
+        li
+          a.par.grey-text.text-darken-3(href='/auth/logout') logout
+        li.divider
+
+      //- SIDE NAV BEGINS
+
+      ul#nav-mobile.side-nav.blue-grey.lighten-5.right
         li.center
-          a.link.white-text(href='/products') SAUCE
+          a.link.grey-text(href='/products') products
         li.center
-          a.link.white-text(href='/recipes') RECIPES
+          a.link.grey-text(href='/blog') blog
         li.center
-          a.link.white-text(href='/blog') LEARN
+          a.link.grey-text(href='/about') our story
+        li.center
+          a.link.grey-text(href='/faq') faq
+        li.center
+          a.link.grey-text(href='/contact') contact us
+        li.center
+          a.link.grey-text(href='/privacy') privacy and terms
         if user
           li.user-tab.center
             a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
               span.blue-text Welcome, #{user.first_name}
         else
           li.center
-            a.link.white-text(href='/auth/login') LOGIN
+            a.link.grey-text(href='/auth/login') login
 
         li.center
           a.link.white-text.center(href='/cart')
             ul
               i.material-icons.blue-text shopping_cart
 
-      a.right.button-collapse.link(href='#', data-activates='nav-mobile')
-        i.material-icons menu
 
-      ul#user-dropdown.dropdown-content
-        li
-          a(href='/cart/history') order history
-        li
-          a(href='/auth/logout') logout
-        li.divider
+      //-   if user
+      //-     li.user-tab.center
+      //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
+      //-         span.blue-text Welcome, #{user.first_name}
+      //-   else
+      //-     li.center
+      //-       a.link.white-text(href='/auth/login') LOGIN
 
-      ul#user-nav-dropdown.dropdown-content
-        li
-          a(href='/cart/history') order history
-        li
-          a(href='/auth/logout') logout
-        li.divider
+        li.center
+          a.link.white-text.center(href='/cart')
+            ul
+              i.material-icons.blue-text shopping_cart
 
-      ul#learn-dropdown.dropdown-content
-        li
-          a(href='/about') our story
-        li
-          a(href='/talk') kitchen talk
-        li
-          a(href='/blog') blog
-        li
-          a(href='/faq') FAQs
-        li.divider
+      //- a.right.button-collapse.link(href='#', data-activates='nav-mobile')
+      //-   i.material-icons menu
+
+      //- ul#user-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/cart/history') order history
+      //-   li
+      //-     a(href='/auth/logout') logout
+      //-   li.divider
+
+      //- ul#user-nav-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/cart/history') order history
+      //-   li
+      //-     a(href='/auth/logout') logout
+      //-   li.divider
+
+      //- ul#learn-dropdown.dropdown-content
+      //-   li
+      //-     a(href='/about') our story
+      //-   li
+      //-     a(href='/talk') kitchen talk
+      //-   li
+      //-     a(href='/blog') blog
+      //-   li
+      //-     a(href='/faq') FAQs
+      //-   li.divider

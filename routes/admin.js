@@ -5,18 +5,12 @@ const router = express.Router();
 const knex = require('../db/connection');
 const utils = require('../lib/utils');
 
-function requiresLogin(req, res, next) {
-  if(req.session && req.session.userId) {
-    return next();
+router.get('/', (err, req, res, next) => {
+  if(err) {
+    res.render('/auth/login', {error: 'requires admin access'})
   } else {
-    var err = new Error('You must be loggied in to view this page');
-    err.status = 401;
-    return next(err);
+    res.render('admin/index', {admin: 'true'});
   }
-}
-
-router.get('/', (req, res, next) => {
-  res.render('admin/index', {admin: 'true'});
 });
 
 module.exports = router;

@@ -1,69 +1,115 @@
-.col.l6.s6
-  .card
-    .card-content.billing
-      h5 Billing Details
-      .row
-        .input-field.col.s6
-          input.validate(placeholder='first name', id='first_name', type='text')
-        .input-field.col.s6
-          input.validate(placeholder='last name', id='last_name', type='text')
-      .row
-        .input-field.col.s12
-          input.validate(placeholder='company name', id='company_name', type='text')
-      .row
-        .input-field.col.s12
-          input.validate(placeholder='street address', id='address', type='text')
-          input.validate(placeholder='apt, suit, unit (optional)', id='address_2', type='text')
-      .row
-        .input-field.col.s12
-          input.validate(placeholder='town/city', id='city', type='text')
-      .row
-        .input-field.col.s6
-          input.validate(placeholder='state', id='state', type='text')
+extends ../layout
 
-        .input-field.col.s6
-          input.validate(placeholder='zip code', id='zip', type='text')
-      .row
-        .input-field.col.s12
-          input.validate(placeholder='phone', id='phone', type='text')
-
-      .row
-        .input-field.col.s12
-          input.validate(placeholder='email address', id='phone', type='text')
-        .input-field
-          input.validate(type='checkbox', name='create_', id='create_account')
-        p
-        input.validate(type='checkbox' id='save_address')
-        label(for='save_address') save address?
-
-
-.col.l6.s6
-  .card
-    .card-content
-      h5 Ship to different address?
-      p
-      input.validate(type='checkbox' id='alt_address_check')
-      label(for='alt_address_check')
+block content
+  .checkout
+    .row.checkout-list
       hr
-      #alt_address
-        .row
-          .input-field.col.s6
-            input.validate(placeholder='first name', id='first_name', type='text')
-          .input-field.col.s6
-            input.validate(placeholder='last name', id='last_name', type='text')
-        .row
-          .input-field.col.s12
-            input.validate(placeholder='company name', id='company_name', type='text')
-        .row
-          .input-field.col.s12
-            input.validate(placeholder='street address', id='address', type='text')
-            input.validate(placeholder='apt, suit, unit (optional)', id='address_2', type='text')
-        .row
-          .input-field.col.s12
-            input.validate(placeholder='town/city', id='city', type='text')
-        .row
-          .input-field.col.s6
-            input.validate(placeholder='state', id='state', type='text')
+      p.white-text.par Returning customer? Click here to
+        a(href='/auth/login') &nbsp;login
+      hr
 
-          .input-field.col.s6
-            input.validate(placeholder='zip code', id='zip', type='text')
+    .row
+      .col.s4.offset-s2
+        h5.pageTitle Shipping Address
+        #alt_address
+          .row
+            .input-field.col.s6
+              input.validate(id='first_name', type='text')
+              label.white-text.par(for='first_name') first name
+
+            .input-field.col.s6
+              input.validate(id='last_name', type='text')
+              label.white-text.par(for='last_name') last name
+
+          .row
+            .input-field.col.s12
+              input.validate(id='company_name', type='text')
+              label.white-text.par(for='company_name') company name
+
+          .row
+            .input-field.col.s12
+              input.validate(id='address', type='text')
+              label.white-text.par(for='address') address
+
+          .row
+            .input-field
+              input.validate(id='address_2', type='text')
+              label.white-text.par(for='address_2') apt, suit, unit (optional)
+
+          .row
+            .input-field.col.s12
+              input.validate(id='city', type='text')
+              label.white-text.par(for='city') city
+
+          .row
+            .input-field.col.s6
+              input.validate(id='state', type='text')
+              label.white-text.par(for='state') state
+
+            .input-field.col.s6
+              input.validate(id='zip', type='text')
+              label.white-text.par(for='zip') zip
+          .row
+            h5.pageTitle Billing Address
+            input.validate(type='checkbox' id='alt_address_check' checked)
+            label.white-text.par(for='alt_address_check') same as shipping?
+
+        #billing
+          .row
+            .input-field.col.s6
+              input.validate(id='first_name', type='text')
+              label.white-text.par(for='first_name') first name
+
+            .input-field.col.s6
+              input.validate(id='last_name', type='text')
+              label.white-text.par(for='last_name') last name
+
+          .row
+            .input-field.col.s12
+              input.validate(id='company_name', type='text')
+              label.white-text.par(for='company_name') company name
+
+          .row
+            .input-field.col.s12
+              input.validate(id='address', type='text')
+              label.white-text.par(for='address') address
+
+          .row
+            .input-field
+              input.validate(id='address_2', type='text')
+              label.white-text.par(for='address_2') apt, suit, unit (optional)
+
+          .row
+            .input-field.col.s12
+              input.validate(id='city', type='text')
+              label.white-text.par(for='city') city
+
+          .row
+            .input-field.col.s6
+              input.validate(id='state', type='text')
+              label.white-text.par(for='state') state
+
+            .input-field.col.s6
+              input.validate(id='zip', type='text')
+              label.white-text.par(for='zip') zip
+
+
+      .col.s3.offset-s1.white-text.par
+        h5.pageTitle Your Order
+        hr
+        p Cart Totals
+          span.right $#{cart_info.total}
+        p Shipping
+          span.right $#{shipping}
+        hr
+        p Total
+          span.right $#{cart_info.total}
+        form(action='/cart/charge', method='POST')
+          script(
+            src='//checkout.stripe.com/v2/checkout.js',
+            class='stripe-button',
+            data-key=keyPublishable,
+            data-locale='auto',
+            data-description='Sample Charge',
+            data-amount=`${stripe_total}`
+          )

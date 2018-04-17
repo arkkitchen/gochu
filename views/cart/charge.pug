@@ -1,34 +1,30 @@
 extends ../layout
 
 block content
-  form(action='/cart/billing', method='POST')
-    .row.checkout-list
+  .checkout
+    //- .row.checkout-list
+    //-   hr
+    //-   p.white-text.par Returning customer? Click here to
+    //-     a(href='/auth/login') &nbsp;login
+    //-   hr
+    .col.s3.offset-s1.white-text.par
+      h5.pageTitle Your Order
       hr
-      p Returning customer? Click here to login
+      p Cart Totals
+        span.right $#{cart_info.total}
+      p Shipping
+        span.right $#{shipping}
       hr
-      if(user)
-        include charge_user
-      else
-        include charge_guest
-
-      .card
-        .card-content
-          h5 Your Order
-          hr
-          p Cart Totals
-            span.right $#{cart_info.total}
-          p Shipping
-            span.right $#{shipping}
-          hr
-          p Total
-            span.right $#{cart_info.total}
-          form(action='/cart/charge', method='POST')
-            script(
-              src='//checkout.stripe.com/v2/checkout.js',
-              class='stripe-button',
-              data-key=keyPublishable,
-              data-locale='auto',
-              data-description='Sample Charge',
-              data-amount=`${stripe_total}`
-            )
-
+      p Total
+        span.right $#{cart_total}
+      form(action='/cart/charge', method='POST')
+        article
+          label Amount: $#{cart_info.gross}
+        script(
+          src='//checkout.stripe.com/v2/checkout.js',
+          class='stripe-button',
+          data-key=keyPublishable,
+          data-locale='auto',
+          data-description='go-chu',
+          data-amount=`${stripe_total}`
+        )

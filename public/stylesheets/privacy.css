@@ -1,0 +1,31 @@
+
+
+.pageTitle{
+    font-family: source code pro;
+    letter-spacing: 4.5px;
+    font-size: 23px;
+    color:  #B30C1E;
+    font-weight: bolder
+}
+
+.privacy_heading{
+    font-family: source code pro;
+    letter-spacing: 4.5px;
+    font-size: 19px;
+    color:  #B30C1E;
+    font-weight: bolder
+}
+
+.par{
+    font-family: source code pro;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+    color:  #f1f1f1
+}
+
+::placeholder {
+    font-family: source code pro;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+    color:  #f1f1f1
+}

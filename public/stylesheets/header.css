@@ -1,0 +1,41 @@
+
+#homepage{
+    background-image: url(../images/slide/blue.jpg);
+    /* background-size: cover;
+    background-position: 50%;
+    background-repeat:no-repeat;
+    background-position:center */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  nav{
+    background-color: transparent;
+    box-shadow: none
+  }
+
+  .link{
+    /* color:  rgba(206, 46, 38, 0.728); */
+    font-size: 15px;
+    font-family: Comfortaa;
+    letter-spacing: 3px;
+    font-weight: bolder
+  }
+
+  .lightGrey_color{
+    color: #eeeeee
+  }
+
+  .fa_icon{
+    font-size: 18px
+  }
+
+  #pLink{
+    margin-top: -5px;
+    font-size: 18px
+  }
