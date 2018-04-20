@@ -18,6 +18,10 @@ function Promos(){
   return knex('promos');
 }
 
+function Orders(){
+  return knex('orders');
+}
+
 router.get('/', (req, res, next) => {
   res.render('cart/cart', _.get(req, 'session'));
 });
@@ -28,7 +32,7 @@ router.get('/shipping', (req, res, next) => {
 
 router.post('/shipping', (req, res, next) => {
   //TODO: UPS HERE
-  req.session.shipping = req.body;
+  req.session.gc_shipping = req.body;
   req.session.save((err) => {
     res.redirect('/cart/charge');
   });
@@ -73,7 +77,18 @@ router.post('/charge', (req, res, next) => {
     let data = _.cloneDeep(_.get(req, 'session'));
     _.merge(data, charge);
     console.log("CHARGE: ", data);
-    res.render('cart/reciept.pug', data);
+    Orders().insert({
+      customer_id: _.get(charge, 'customer'),
+      payment_id: _.get(charge, 'id'),
+      promo_id: _.get(data, 'promo.id'),
+      fulfilled: false,
+      shipping_address: JSON.stringify(_.get(data, 'gc_shipping')),
+      billing_address: JSON.stringify(_.get(charge, 'source'))
+    }).then((status) => {
+      console.log("DATA: ", data);
+      req.session.destroy();
+      res.render('cart/reciept.pug', data);
+    });
   })
   .catch(err => {
     console.log("Error: ", err);
@@ -87,7 +102,7 @@ router.get('/charge', (req, res, next) => {
   //   .select().then((addresses) => {
   //     console.log('Addresses: ', addresses);
   let data = _.cloneDeep(_.get(req, 'session'));
-  if (!_.get(data, 'shipping')) {
+  if (!_.get(data, 'gc_shipping')) {
     _.merge(data, {error: 'need shipping address'});
     res.render('cart/shipping', data);
   }
