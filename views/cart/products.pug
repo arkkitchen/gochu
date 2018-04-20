@@ -5,26 +5,39 @@ block content
   br
   for product in products
     .row
-      .col.s12.l4
-        h5.privacy_heading.center-align gochu
-        p.par Gochu’s made from a premium blend of sugar and spice AND all those good things added onto a foundation of an aged fermented bean paste called Gochujang in Korean. We know how it sounds, but hang on. Before you go crinkling your nose, this stuff’s been a staple of Korean cuisine for cuisine for centuries, and only now are we finding out just how crazy good it is for you.
-
-      .col.s12.l4
-          img.materialboxed.prod_img(src=`${product.image}`)
+      .col.s12.l6
+        .row
+          .col.offset-s3
+            img.materialboxed.prod_img(src=`${product.image}`)
           //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
-      .col.s12.l4
+      .col.s12.l6
+        h3.privacy_heading Go Chu Chili Sauce
+        p.par Gochu’s made from a premium blend of sugar and spice AND all those good
+          |things added onto a foundation of an aged fermented bean paste called Gochujang
+          |in Korean. We know how it sounds, but hang on. Before you go crinkling your
+          |nose, this stuff’s been a staple of Korean cuisine for cuisine for centuries,
+          |and only now are we finding out just how crazy good it is for you.
+        p 3.4 oz/ 100ml
+        p
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star
+          i.fas.fa-star
+        h3 $#{product.price}
         form(action=`/cart/${product.id}`, method='POST')
+
           .input-field
             select.white-text.par
-              option(value='', disabled, selected) choose option
-              option(value=3) 3 bottles
+              option(value='', disabled, selected) buy a pack
               option(value=5) 5 bottles
+              option(value=10) 10 bottles
               label Packs
             br
 
           .input-field
             select.white-text.par(name='quantity')
-              option(value='', disabled, selected) choose option
+              option(value='', disabled, selected) buy a bottle
               option(value=1) 1
               option(value=2) 2
               option(value=3) 3
@@ -37,11 +50,11 @@ block content
               option(value=10) 10
               label Amount
             .input-field.hide
-                input.hide(type='text', name='price', value=`${product.price}`)
-                input.hide(type='text', name='product', value=`${product.product}`)
-                input.hide(type='text', name='id', value=`${product.id}`)
-                input.hide(type='text', name='image', value=`${product.image}`)
-                input.hide(type='number', name='update', value=1)
+              input.hide(type='text', name='price', value=`${product.price}`)
+              input.hide(type='text', name='product', value=`${product.product}`)
+              input.hide(type='text', name='id', value=`${product.id}`)
+              input.hide(type='text', name='image', value=`${product.image}`)
+              input.hide(type='number', name='update', value=1)
 
             br
             .input-field

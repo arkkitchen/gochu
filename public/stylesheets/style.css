@@ -27,10 +27,10 @@ body {
   padding-top: 2em
 }
 
-/* #bookmarks{
-  height: 600px;
-  padding-top: 10%
-} */
+#bookmarks{
+  margin: 0;
+  padding: 0;
+}
 
 .letterFont{
   color: #fafafacd;

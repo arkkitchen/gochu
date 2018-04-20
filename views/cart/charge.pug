@@ -17,6 +17,7 @@ block content
       hr
       p Total
         span.right $#{cart_total}
+        
       form(action='/cart/charge', method='POST')
         article
           label Amount: $#{cart_info.gross}

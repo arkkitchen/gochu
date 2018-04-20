@@ -3,7 +3,7 @@ extends ../layout
 block content
   if error
     span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
-    
+
   form(action='/cart/shipping', method='POST')
     .row.checkout
       h5.pageTitle Shipping Address
@@ -21,7 +21,7 @@ block content
             label.white-text.par(for='company_name') company name
         .row
           .input-field.col.s12
-            input.validate(name='address', type='text')
+            input.validate(name='address', type='text', required)
             label.white-text.par(for='address') address
         .row
           .input-field
@@ -29,7 +29,7 @@ block content
             label.white-text.par(for='address_2') apt, suit, unit (optional)
         .row
           .input-field.col.s12
-            input.validate(name='city', type='text')
+            input.validate(name='city', type='text', required)
             label.white-text.par(for='city') city
         .row
           .input-field.col.s6
@@ -88,7 +88,7 @@ block content
               option(value="WI") Wisconsin
               option(value="WY") Wyoming
           .input-field.col.s6
-            input.validate(name='zip', type='text')
+            input.validate(name='zip', type='text', required)
             label.white-text.par(for='zip') zip
 
     .row.center
