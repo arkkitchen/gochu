@@ -13,7 +13,7 @@
     -o-background-size: cover;
     background-size: cover;
   }
-  
+
   nav{
     background-color: transparent;
     box-shadow: none
@@ -38,4 +38,8 @@
   #pLink{
     margin-top: -5px;
     font-size: 18px
+  }
+
+  .letters {
+    width: 60%;
   }

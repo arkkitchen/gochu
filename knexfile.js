@@ -4,10 +4,10 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'oven_test',
+      database: 'oven',
       user:     'gochu',
-      password: 'dummypassword',
-      host:     'oven-test.citcxlfntzst.us-east-2.rds.amazonaws.com'
+      password: 'testtest',
+      host:     'localhost'
     },
     pool: {
       min: 2,
@@ -18,13 +18,13 @@ module.exports = {
     }
   },
 
-  local: {
+  developmentAws: {
     client: 'pg',
     connection: {
-      database: 'oven',
+      database: 'oven_test',
       user:     'gochu',
-      password: 'testtest',
-      host:     'localhost'
+      password: 'dummypassword',
+      host:     'oven-test.citcxlfntzst.us-east-2.rds.amazonaws.com'
     },
     pool: {
       min: 2,
