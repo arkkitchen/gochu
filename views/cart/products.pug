@@ -5,12 +5,10 @@ block content
   br
   for product in products
     .row
-      .col.s12.l6
-        .row
-          .col.offset-s3
-            img.materialboxed.prod_img(src=`${product.image}`)
-          //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
-      .col.s12.l6
+      .col.s12.l4.offset-l2
+        img.materialboxed.prod_img(src=`${product.image}`)
+      //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
+      .col.s12.l4
         h3.privacy_heading Go Chu Chili Sauce
         p.par Gochu’s made from a premium blend of sugar and spice AND all those good
           |things added onto a foundation of an aged fermented bean paste called Gochujang
@@ -19,24 +17,24 @@ block content
           |and only now are we finding out just how crazy good it is for you.
         p 3.4 oz/ 100ml
         p
-          i.fas.fa-star
-          i.fas.fa-star
-          i.fas.fa-star
-          i.fas.fa-star
-          i.fas.fa-star
+          i.fas.fa-star.yellow-text
+          i.fas.fa-star.yellow-text
+          i.fas.fa-star.yellow-text
+          i.fas.fa-star.yellow-text
+          i.fas.fa-star.yellow-text
         h3 $#{product.price}
         form(action=`/cart/${product.id}`, method='POST')
 
           .input-field
-            select.white-text.par
+            select.par(style='width: 30px;')
               option(value='', disabled, selected) buy a pack
               option(value=5) 5 bottles
               option(value=10) 10 bottles
               label Packs
-            br
+          hr
 
           .input-field
-            select.white-text.par(name='quantity')
+            select.par(name='quantity')
               option(value='', disabled, selected) buy a bottle
               option(value=1) 1
               option(value=2) 2
@@ -59,7 +57,6 @@ block content
             br
             .input-field
               input.gc-button.lightGrey_color(type='submit', value=' add to cart ')
-
     //- .row.shopping-bar
     //- .gallery-container
     //-   .row.center

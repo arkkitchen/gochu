@@ -24,15 +24,15 @@ block content
 
         form(method='POST', action=`/contact`)
           .input-field.col.s12
-            input(type='text', id='name').validate.white-text.par
-            label.white-text.par name
+            input(type='text', id='name').validate.par
+            label.par name
 
           .input-field.col.s12
-            input(type='text', id='email').validate.white-text.par
-            label.white-text.par email
+            input(type='text', id='email').validate.par
+            label.par email
 
           .input-field.col.s12
-            select.white-text.par
+            select.par
               option subject
               option general question
               option online order
@@ -40,8 +40,8 @@ block content
               option press inquiry
 
           .input-field.col.s12
-            textarea#icon_prefix2.materialize-textarea.validate.white-text.par
-            label.white-text.par message
+            textarea#icon_prefix2.materialize-textarea.validate.par
+            label.par message
 
           .input-field
             input.gc-button.lightGrey_color(type='submit', value=' SUBMIT ')

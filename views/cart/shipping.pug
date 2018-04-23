@@ -2,39 +2,40 @@ extends ../layout
 
 block content
   if error
-    span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
+    span.error-badge.red.badge(data-badge-caption=`${error}`)
 
   form(action='/cart/shipping', method='POST')
     .row.checkout
-      h5.pageTitle Shipping Address
       #alt_address
+        .row.center
+           h5.pageTitle Shipping Address
         .row
-          .input-field.col.s6
+          .input-field.col.s4.offset-s2
             input.validate(name='first_name', type='text')
-            label.white-text.par(for='first_name') first name
-          .input-field.col.s6
+            label.par(for='first_name') first name
+          .input-field.col.s4
             input.validate(name='last_name', type='text')
-            label.white-text.par(for='last_name') last name
+            label.par(for='last_name') last name
         .row
-          .input-field.col.s12
+          .input-field.col.s8.offset-s2
             input.validate(name='company_name', type='text')
-            label.white-text.par(for='company_name') company name
+            label.par(for='company_name') company name
         .row
-          .input-field.col.s12
+          .input-field.col.s8.offset-s2
             input.validate(name='address', type='text', required)
-            label.white-text.par(for='address') address
+            label.par(for='address') address
         .row
-          .input-field
+          .input-field.col.s8.offset-s2
             input.validate(name='address_2', type='text')
-            label.white-text.par(for='address_2') apt, suit, unit (optional)
+            label.par(for='address_2') apt, suit, unit (optional)
         .row
-          .input-field.col.s12
+          .input-field.col.s8.offset-s2
             input.validate(name='city', type='text', required)
-            label.white-text.par(for='city') city
+            label.par(for='city') city
         .row
-          .input-field.col.s6
-            //- select.white-text(name='state-shipping', required)
-            select.white-text(name='state-shipping')
+          .input-field.col.s4.offset-s2
+            //- select(name='state-shipping', required)
+            select(name='state-shipping')
               option(value="" disabled selected) state
               option(value="AL") Alabama
               option(value="AK") Alaska
@@ -87,9 +88,9 @@ block content
               option(value="WV") West Virginia
               option(value="WI") Wisconsin
               option(value="WY") Wyoming
-          .input-field.col.s6
+          .input-field.col.s4
             input.validate(name='zip', type='text', required)
-            label.white-text.par(for='zip') zip
+            label.par(for='zip') zip
 
     .row.center
       input.gc-button.lightGrey.par(type='submit', value='checkout')

@@ -4,19 +4,14 @@
 }
 
 hr{
-    border: .5px solid white
+    border: .5px solid white;
 }
 
 .bordered{
-    border-bottom-color: white
+    border-bottom: 1px solid darkgrey;
 }
 
 .updateQuant {
     width: 5rem;
-    text-align: center;
     margin: 0 auto;
-}
-
-.checkout {
-    padding: 5rem;
 }
