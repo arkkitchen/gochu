@@ -1,5 +1,5 @@
 header
-  nav.nav-show(role='navigation')
+  nav.nav-hide(role='navigation')
     .nav-wrapper
       a#logo-container.brand-logo.left(href='/')
         img.gc-logo(src='/images/gochuKitchen_bw_logo.png' alt='go chu logo')
@@ -7,26 +7,26 @@ header
       ul.right.hide-on-med-and-down
         li
           a.link(href='/#', hover)
-            i.fa_icon.fab.fa-facebook.grey-text
+            i.fa_icon.fab.fa-facebook.lightGrey_color
 
         li
           a.link(href='https://www.instagram.com/gochukitchen/', hover)
-            i.fa_icon.fab.fa-instagram.grey-text
-            //- i.material-icons.grey-text font_download
+            i.fa_icon.fab.fa-instagram
+            //- i.material-icons.lightGrey_color font_download
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
-              span.par.grey-text welcome, #{user.first_name}
+              span.par welcome, #{user.first_name}
         else
           li
-            a.link.grey-text(href='/auth/login') LOGIN
+            a.link.lightGrey_color(href='/auth/login') LOGIN
 
         li
           a.link(href='/cart', hover)
             ul
               li
-                i.material-icons.grey-text shopping_cart
-              li.grey-text (#{cart_info.items})
+                i.material-icons.lightGrey_color shopping_cart
+              li.white-text (#{cart_info.items})
 
       a.right.button-collapse.link(href='#', data-activates='nav-mobile')
         i.material-icons menu
@@ -71,45 +71,3 @@ header
           a.link.white-text.center(href='/cart')
             ul
               i.material-icons.blue-text shopping_cart
-
-
-      //-   if user
-      //-     li.user-tab.center
-      //-       a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)
-      //-         span.blue-text Welcome, #{user.first_name}
-      //-   else
-      //-     li.center
-      //-       a.link.white-text(href='/auth/login') LOGIN
-
-        li.center
-          a.link.white-text.center(href='/cart')
-            ul
-              i.material-icons.blue-text shopping_cart
-
-      //- a.right.button-collapse.link(href='#', data-activates='nav-mobile')
-      //-   i.material-icons menu
-
-      //- ul#user-dropdown.dropdown-content
-      //-   li
-      //-     a(href='/cart/history') order history
-      //-   li
-      //-     a(href='/auth/logout') logout
-      //-   li.divider
-
-      //- ul#user-nav-dropdown.dropdown-content
-      //-   li
-      //-     a(href='/cart/history') order history
-      //-   li
-      //-     a(href='/auth/logout') logout
-      //-   li.divider
-
-      //- ul#learn-dropdown.dropdown-content
-      //-   li
-      //-     a(href='/about') our story
-      //-   li
-      //-     a(href='/talk') kitchen talk
-      //-   li
-      //-     a(href='/blog') blog
-      //-   li
-      //-     a(href='/faq') FAQs
-      //-   li.divider

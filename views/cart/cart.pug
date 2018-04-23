@@ -7,46 +7,44 @@ block content
     span.error-badge.red.white-text.badge(data-badge-caption=`${error}`)
 
   .row.checkout-list
-    .col.s12.l12
-      h1.pageTitle.center-align CART
-        .card.cart_table.center-align
-          .card-content
-            h5.privacy_heading You have #{cart_info.items} Item in Your Cart
-            hr
+    .col.s12.l10.offset-l1
+      .card.cart_table.center-align
+        .card-content
+          h5.privacy_heading You have #{cart_info.items} Item in Your Cart
+          .row
+            .col.s3
+              h3.par item
+
+            .col.s3
+              h3.par quantity
+
+            .col.s3
+              h3.par price
+            .col.s3
+
+          for product in cart
             .row
-              .col.s3
-                h3.par item
-
-              .col.s3
-                h3.par quantity
-
-              .col.s3
-                h3.par price
-              .col.s3
-
-            for product in cart
-              .row
-                form(action=`/cart/${product.id}`, method='POST')
-                  .col.s3
-                    .chip
-                      img(src=`${product.image}`, alt='product shot')
-                      b= product.product
-                  .col.s3
-                    .input-field.updateQuant
-                      input(type='number', name='quantity', value=product.quantity, min='0')
-                    .input-field.hide
-                      input.hide(type='text', name='price', value=`${product.price}`)
-                      input.hide(type='text', name='product', value=`${product.product}`)
-                      input.hide(type='text', name='id', value=`${product.id}`)
-                      input.hide(type='text', name='image', value=`${product.image}`)
-                      input.hide(type='number', name='update', value=1)
-                  .col.s3
-                    p.par $#{product.price}
-                  .col.s3
-                    input.gc-button.lightGrey.par(type='submit', value='apply')
+              form(action=`/cart/${product.id}`, method='POST')
+                .col.s3
+                  .chip
+                    img(src=`${product.image}`, alt='product shot')
+                    b= product.product
+                .col.s3
+                  .input-field.updateQuant
+                    input(type='number', name='quantity', value=product.quantity, min='0', style='text-align: center; border: 1px solid lightgrey')
+                  .input-field.hide
+                    input.hide(type='text', name='price', value=`${product.price}`)
+                    input.hide(type='text', name='product', value=`${product.product}`)
+                    input.hide(type='text', name='id', value=`${product.id}`)
+                    input.hide(type='text', name='image', value=`${product.image}`)
+                    input.hide(type='number', name='update', value=1)
+                .col.s3
+                  p.par(style='text-align: center;') $#{product.price}
+                .col.s3
+                  input.gc-button.lightGrey.par(type='submit', value='apply')
 
     .row
-      .col.s6
+      .col.s5.offset-s1
         br
         .card.cart_table
           .card-content
@@ -54,11 +52,11 @@ block content
               p.par Have a Promo code?
               .input-field
                 input.validate(name='code', type='text')
-              label.white-text.par promo code
+              label.par promo code
                 br
                 br
                 input.gc-button.lightGrey_color.par(type='submit', value='apply')
-      .col.s6
+      .col.s5
         .card.cart_table
           .card-content
             h5.par Order Summary
@@ -74,4 +72,4 @@ block content
             p.par TOTAL
               span.right $#{cart_info.gross}
           .card-action.center
-            a.gc-button.lightGrey_color.par.white-text(href='/cart/shipping') proceed to shipping
+            a.gc-button.lightGrey_color.par(href='/cart/shipping') proceed to shipping

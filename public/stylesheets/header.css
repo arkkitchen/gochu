@@ -14,9 +14,15 @@
     background-size: cover;
   }
 
-  nav{
+  .nav-hide{
     background-color: transparent;
     box-shadow: none
+  }
+
+  .nav-show{
+    background-color: white;
+    box-shadow: none;
+    border-bottom: 1px solid lightgrey;
   }
 
   .link{

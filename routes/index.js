@@ -13,7 +13,9 @@ router.get('/', (req, res, next) => {
   console.log("GOT HERE");
   console.log(req.session);
   // req.session.destroy();
-  res.render('index', _.get(req, 'session'));
+  let data = _.cloneDeep(_.get(req, 'session'));
+  _.merge(data, {index: true});
+  res.render('index', data);
 });
 
 router.get('/recipes', (req, res, next) => {

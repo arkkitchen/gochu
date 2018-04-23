@@ -16,8 +16,11 @@ html
 
 
   body
-    include header
-    
+    if index
+      include index_header
+    else
+      include header
+
     main
       block content
 
