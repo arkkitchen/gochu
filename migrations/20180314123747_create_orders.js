@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.integer('promo_id');
     table.boolean('fulfilled');
     table.string('tracking_number').unique();
+    table.json('cart_info');
     table.json('shipping_address').notNullable();
     table.json('billing_address').notNullable();
     table.timestamp('purchase_date').notNullable().defaultTo(knex.raw('now()'));

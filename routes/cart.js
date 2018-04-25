@@ -76,22 +76,35 @@ router.post('/charge', (req, res, next) => {
     //TODO: email receipt
     let data = _.cloneDeep(_.get(req, 'session'));
     _.merge(data, charge);
-    console.log("CHARGE: ", data);
     Orders().insert({
       customer_id: _.get(charge, 'customer'),
       payment_id: _.get(charge, 'id'),
       promo_id: _.get(data, 'promo.id'),
       fulfilled: false,
+      cart_info: JSON.stringify(_.merge(_.get(data, 'cart_info'), _.get(data, 'cart'))),
       shipping_address: JSON.stringify(_.get(data, 'gc_shipping')),
       billing_address: JSON.stringify(_.get(charge, 'source'))
     }).then((status) => {
-      console.log("DATA: ", data);
-      req.session.destroy();
-      res.render('cart/reciept.pug', data);
+      //send confirmation email
+      //send jess email
+      //possible UPS integration
+      console.log("CHARGE: ", charge);
+      res.mailer.send('cart/email-reciept', {
+        to: _.get(charge, 'source.name'),
+        subject: `Order: ${_.get(charge, 'id')}`,
+        data,
+      }, (err) => {
+        if(err) {
+          console.log('Err:', err);
+          res.send('error sending email;');
+          return;
+        }
+        req.session.destroy();
+        res.render('cart/reciept.pug', data);
+      });
     });
   })
   .catch(err => {
-    console.log("Error: ", err);
     res.status(500).send({error: "Purchase Failed"});
   });
 });

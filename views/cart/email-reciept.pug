@@ -1,0 +1,35 @@
+html
+  head
+    meta(http-equiv = 'Content-Type', content = 'text/html; charset=UTF-8')
+    title= subject
+    body
+      .center(style='text-align: center;')
+        h1.h1 THANK YOU FOR YOUR ORDER!
+        p Enjoy your bottles of GoChu sauce! Make sure to share with everyone!
+          //- strong Your tracking number is:
+          //- | #{tracking_number}
+        table
+          thead
+            tr
+              th Product
+              th Quantity
+              th Price
+          tbody
+            each product in data.cart
+              tr
+                td #{product.product}
+                td #{product.quantity}
+                td #{product.price}
+
+        .row
+          .col.s6
+            h4 Cart Total
+          .col.s5
+            h4 $#{data.cart_info.total}
+
+        .row
+          h4 Shipped To:
+          p #{data.gc_shipping.address}
+          p #{data.gc_shipping.city}
+          p #{data.gc_shipping.state}
+          p #{data.gc_shipping.zip}

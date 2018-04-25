@@ -44,7 +44,7 @@ block content
                   input.gc-button.lightGrey.par(type='submit', value='apply')
 
     .row
-      .col.s5.offset-s1
+      .col.s5.offset-s1.m4.offset-m2
         br
         .card.cart_table
           .card-content
@@ -55,8 +55,8 @@ block content
               label.par promo code
                 br
                 br
-                input.gc-button.lightGrey_color.par(type='submit', value='apply')
-      .col.s5
+                input.gc-button.par(type='submit', value='apply')
+      .col.s5.m4
         .card.cart_table
           .card-content
             h5.par Order Summary
@@ -72,4 +72,4 @@ block content
             p.par TOTAL
               span.right $#{cart_info.gross}
           .card-action.center
-            a.gc-button.lightGrey_color.par(href='/cart/shipping') proceed to shipping
+            a.gc-button.lightGrey_color.par.grey-text(href='/cart/shipping') checkout

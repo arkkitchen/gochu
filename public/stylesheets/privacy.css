@@ -1,11 +1,10 @@
 
-
 .pageTitle{
     font-family: source code pro;
     letter-spacing: 4.5px;
     font-size: 23px;
     color:  #B30C1E;
-    font-weight: bolder
+    font-weight: bolder;
 }
 
 .privacy_heading{
@@ -22,12 +21,12 @@
     font-family: source code pro;
     letter-spacing: 2.5px;
     font-size: 14px;
-    color:  darkgrey;
+    color:  #202020;
 }
 
 ::placeholder {
     font-family: source code pro;
     letter-spacing: 2.5px;
     font-size: 14px;
-    color:  #f1f1f1
+    color:  #f1f1f1;
 }

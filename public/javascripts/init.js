@@ -9,6 +9,7 @@
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
     $('.modal').modal();
+    $('.collapsible').collapsible();
     $('#alt_address_check').click(()=>{
       $('#billing').toggle();
     });

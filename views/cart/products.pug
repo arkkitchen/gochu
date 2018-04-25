@@ -4,34 +4,24 @@ block content
   br
   br
   for product in products
+    .row.center
+      h2 GO CHU CHILI SAUCE
+      p 16 oz | 473 ml
+      h5.golden $#{product.price}
     .row
-      .col.s12.l4.offset-l2
+      .col.s12.m5.offset-m1
         img.materialboxed.prod_img(src=`${product.image}`)
       //- img.materialboxed.prod_img(src='/images/cart/prod_noBackground.png')
-      .col.s12.l4
-        h3.privacy_heading Go Chu Chili Sauce
-        p.par Gochu’s made from a premium blend of sugar and spice AND all those good
-          |things added onto a foundation of an aged fermented bean paste called Gochujang
-          |in Korean. We know how it sounds, but hang on. Before you go crinkling your
-          |nose, this stuff’s been a staple of Korean cuisine for cuisine for centuries,
-          |and only now are we finding out just how crazy good it is for you.
-        p 3.4 oz/ 100ml
-        p
-          i.fas.fa-star.yellow-text
-          i.fas.fa-star.yellow-text
-          i.fas.fa-star.yellow-text
-          i.fas.fa-star.yellow-text
-          i.fas.fa-star.yellow-text
-        h3 $#{product.price}
+      .col.s12.m5
         form(action=`/cart/${product.id}`, method='POST')
 
           .input-field
-            select.par(style='width: 30px;')
+            select.par
               option(value='', disabled, selected) buy a pack
               option(value=5) 5 bottles
               option(value=10) 10 bottles
               label Packs
-          hr
+
 
           .input-field
             select.par(name='quantity')
@@ -54,9 +44,20 @@ block content
               input.hide(type='text', name='image', value=`${product.image}`)
               input.hide(type='number', name='update', value=1)
 
-            br
-            .input-field
-              input.gc-button.lightGrey_color(type='submit', value=' add to cart ')
+            .input-field.center
+              input.gc-button.lightGrey_color(type='submit', value=' ADD TO CART ')
+
+        p.par Gochu’s made from a premium blend of sugar and spice AND all those good
+          |things added onto a foundation of an aged fermented bean paste called Gochujang
+          |in Korean. We know how it sounds, but hang on. Before you go crinkling your
+          |nose, this stuff’s been a staple of Korean cuisine for cuisine for centuries,
+          |and only now are we finding out just how crazy good it is for you.
+        p
+          i.fas.fa-star.golden
+          i.fas.fa-star.golden
+          i.fas.fa-star.golden
+          i.fas.fa-star.golden
+          i.fas.fa-star.golden
     //- .row.shopping-bar
     //- .gallery-container
     //-   .row.center
