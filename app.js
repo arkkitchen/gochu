@@ -40,7 +40,7 @@ app.use(session({
   secret: 'secretsecret',
   saveUninitialized: true,
   resave: true,
-  cookie: { maxAge: 5 * 24 * 60 * 60 * 1000 },
+  cookie: { maxAge: 24 * 60 * 60 * 1000 },
   store: store
 }));
 
