@@ -15,11 +15,19 @@ body {
 }
  main {
   flex: 1 0 auto;
-  padding: 30px
+  padding: 20px
+}
+
+.purchaseButt{
+  margin-top: 50px
 }
 
 .gc-logo {
-  width: 6em;
+  width: 8em
+}
+
+.gc-logo-sm{
+  width: 15em
 }
 
 .gc-logo-2 {
@@ -33,7 +41,7 @@ body {
 }
 
 .letterFont{
-  color: #fafafacd;
+  color: #212121;
   font-size: 150px;
   font-family: Comfortaa;
   letter-spacing: 4px;
@@ -55,7 +63,7 @@ i.icon-white{
 
 .navFont{
   /* color:  rgba(206, 46, 38, 0.728); */
-  color: white;
+  color: #212121;
   font-size: 14px;
   font-family: Comfortaa;
   letter-spacing: 4px;
@@ -79,6 +87,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .grey-text{
   color: #212121
 }
+
 
 hr {
   color: dark-grey;

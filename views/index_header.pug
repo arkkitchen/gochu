@@ -1,35 +1,44 @@
 header
   nav.nav-hide(role='navigation')
-    .nav-wrapper
-      a#logo-container.brand-logo.left(href='/')
-        img.gc-logo(src='/images/gochuKitchen_bw_logo.png' alt='go chu logo')
+    //- logo for medium and down
+    .hide-on-med-and-up.show-on-medium-and-down
+      .nav-wrapper
+        a#logo-container.brand-logo.left(href='/')
+          img.gc-logo-sm(src='/images/logo1.png' alt='go chu logo')
 
-      ul.right.hide-on-med-and-down
+    //- logo for large screen
+    .show-on-large.hide-on-med-and-down
+      .nav-wrapper
+        a#logo-container.brand-logo.left(href='/')
+          img.gc-logo(src='/images/logo1.png' alt='go chu logo')
+
+      ul.navIcons.right.hide-on-med-and-down.show-on-large
         li
           a.link(href='/#', hover)
-            i.fa_icon.fab.fa-facebook.lightGrey_color
+            i.fa_icon.fab.fa-facebook.darkGrey_color
 
         li
           a.link(href='https://www.instagram.com/gochukitchen/', hover)
-            i.fa_icon.fab.fa-instagram
-            //- i.material-icons.lightGrey_color font_download
+            i.fa_icon.fab.fa-instagram.darkGrey_color
+            //- i.material-icons.darkGrey_color font_download
         if user
           li.user-tab
             a.dropdown-button(href='#!', data-activates='user-dropdown', hover)
               span.par welcome, #{user.first_name}
         else
           li
-            a.link.lightGrey_color(href='/auth/login') LOGIN
+            a.link.darkGrey_color(href='/auth/login') LOGIN
 
         li
           a.link(href='/cart', hover)
             ul
               li
-                i.material-icons.lightGrey_color shopping_cart
-              li.white-text (#{cart_info.items})
+                i#homepageShoppingCart.material-icons.darkGrey_color shopping_cart
+              li.darkGrey_color (#{cart_info.items})
 
-      a.right.button-collapse.link(href='#', data-activates='nav-mobile')
-        i.material-icons menu
+    a.right.button-collapse.link(href='#', data-activates='nav-mobile')
+      i.material-icons.darkGrey_color#menu menu
+
       ul#user-dropdown.dropdown-content
         li
           a.par.grey-text.text-darken-3(href='/cart/history') order history
@@ -45,20 +54,19 @@ header
         li.divider
 
       //- SIDE NAV BEGINS
-
       ul#nav-mobile.side-nav.blue-grey.lighten-5.right
         li.center
-          a.link.grey-text(href='/products') products
+          a.link.grey-text.sideNav_font(href='/products') products
         li.center
-          a.link.grey-text(href='/blog') blog
+          a.link.grey-text.sideNav_font(href='/blog') blog
         li.center
-          a.link.grey-text(href='/about') our story
+          a.link.grey-text.sideNav_font(href='/about') our story
         li.center
-          a.link.grey-text(href='/faq') faq
+          a.link.grey-text.sideNav_font(href='/faq') faq
         li.center
-          a.link.grey-text(href='/contact') contact us
+          a.link.grey-text.sideNav_font(href='/contact') contact us
         li.center
-          a.link.grey-text(href='/privacy') privacy and terms
+          a.link.grey-text.sideNav_font(href='/privacy') privacy and terms
         if user
           li.user-tab.center
             a.dropdown-button(href='#!', data-activates='user-nav-dropdown', hover)

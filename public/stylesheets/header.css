@@ -1,27 +1,114 @@
-#homepage{
-    background-image: url(../images/slide/blue.jpg);
-    /* background-size: cover;
-    background-position: 50%;
-    background-repeat:no-repeat;
-    background-position:center */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+body{
+  background-color: #F8F8F8;
+
+}
+
+.col.s4.hide-on-med-and-down.letters{
+  float: right
+}
+
+.href-button{
+  color: #212121;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  background-color: transparent;
+  border: #212121 3px solid;
+  width: 150px;
+  font-size: 14px;
+  overflow-wrap: break-word
+}
+#homepageButtMSm{
+margin-left: 117px
+}
+
+#homepageButtLG{
+  margin-left: 115px
+}
+  
+
+#homepageMSm{
+  width: 55em;
+  height: 58em;
+  padding-top: 150px;
+}
+
+#homepageProbiotics{
+  width: 42em;
+  height: 25em;
+  margin-top: 70px
+}
+/* #homepageLG{
+  width: 55em;
+  height: 45em;
+  } */
+
+.homepageGreeting{
+  font-family: source code pro;
+  letter-spacing: 8px;
+  font-size: 40px;
+  color:  #B30C1E;
+  font-weight: bolder;
+  line-height: 1500%
+}
+
+nav a.button-collapse i{
+  height: 70px;
+  line-height: 175px
+}
+
+
+  nav .nav-wrapper{
+    padding-left: 25px;
+    padding-top: 55px;
+    padding-right: 25px
+  }
+
+  ul.navIcons{
+    padding-right: 25px
+  }
+
+ #menu{
+    font-size: 50px;
+    line-height: 150px;
+    padding-right: 15px
+
   }
 
   .nav-hide{
     background-color: transparent;
-    box-shadow: none
+    box-shadow: none;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-right: 25px;
+    line-height: 115px
   }
+ nav i.material-icons{
+  line-height: 66px
+
+ }
+
+ nav i.material-icons#homepageShoppingCart{
+  line-height: 116px
+
+ }
 
   .nav-show{
-    background-color: white;
-    box-shadow: none;
-    border-bottom: 1px solid lightgrey;
+    background-color: transparent;
+    box-shadow: none
+    }
+
+  .side-nav li>a{
+    display: block;
+    font-size: 18px;
+    font-weight: 200;
+    height: 60px;
+    line-height: 200px;
+    padding: 0px 6px;
+  }
+  i.material-icons.blue-text{
+    line-height: 190px
   }
 
   .link{
@@ -32,8 +119,8 @@
     font-weight: bolder
   }
 
-  .lightGrey_color{
-    color: #eeeeee
+  .darkGrey_color{
+    color: #888888
   }
 
   .fa_icon{
@@ -47,4 +134,5 @@
 
   .letters {
     width: 60%;
+    margin-top: 100px
   }

@@ -1,38 +1,67 @@
 extends layout
 
 block content
-  body#homepage
-    .letters
-      .row#bookmarks
-        .col.s6.center
-          a.linkColor(href='/products', hover)
-            h1.letterFont p
-            i.material-icons.icon-white fiber_manual_record
-            .navFont products
-          p
+  body
+    //- .show-on-medium-and-down.hide-on-large-only 
+    .row
+      .col.s8
+        img#homepageMSm(src='/images/homepage.png' alt='homepage background')
+        br
+        br
+        br
+        a#homepageButtMSm.href-button.par(href='/products') meet gochu
 
-        .col.s6.center(style='border-left: 1px solid white;')
-          a.linkColor(href='/blog', hover)
-            h1.letterFont b
-            i.material-icons.icon-white fiber_manual_record
-            .navFont blog
-          p
+      .col.s4.hide-on-med-and-down.letters
+        .row#bookmarks
+          .col.s7.right
+            a.linkColor(href='/products', hover)
+              h1.letterFont p
+              i.material-icons.icon-white fiber_manual_record
+              .navFont products
 
-      .row#bookmarks
-        .col.s6.center(style='border-top: 1px solid white;')
-          a.linkColor(href='/recipes', hover)
-            h1.letterFont r
-            i.material-icons.icon-white fiber_manual_record
-            .navFont recipes
-          p
+          .col.s7.right
+            a.linkColor(href='/blog', hover)
+              h1.letterFont b
+              i.material-icons.icon-white fiber_manual_record
+              .navFont blog
+
+          .row#bookmarks
+            .col.s7.right
+              a.linkColor(href='/recipes', hover)
+                h1.letterFont r
+                i.material-icons.icon-white fiber_manual_record
+                .navFont recipes
 
 
-        .col.s6.center(style='border-left: 1px solid white;border-top: 1px solid white;')
-          a.linkColor(href='/cart', hover)
-            h1.letterFont c
-            i.material-icons.icon-white fiber_manual_record
-            .navFont cart
-          p
+            .col.s7.right
+              a.linkColor(href='/cart', hover)
+                h1.letterFont c
+                i.material-icons.icon-white fiber_manual_record
+                .navFont cart
+    .row
+      .col.s12
+        img#homepageProbiotics(src='/images/probiotics.png' alt='homepage background')
+        br
+        br
+        br
+
+
+
+    //- .show-on-large.hide-on-med-and-up
+    //-   .row
+    //-     //- .s12.m4.l2
+    //-     .col.s6
+
+    //-       img#homepageLG.center-align(src='/images/homepage.png' alt='homepage background')
+    //-       hr
+    //-       hr
+    //-       hr
+    //-       hr
+    //-       a#homepageButtLG.href-button.par(href='/products') meet gochu
+
+
+
+
 
   //- #index-banner.parallax-container.valign-wrapper.center
   //-   .section.no-pad-bot
