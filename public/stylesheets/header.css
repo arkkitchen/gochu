@@ -34,10 +34,15 @@ margin-left: 117px
   padding-top: 150px;
 }
 
-#homepageProbiotics{
+.homepageNutrition{
   width: 42em;
   height: 25em;
-  margin-top: 70px
+  margin-top: 70px;
+  margin-left: 150px
+}
+
+#fermentation{
+  margin-left: 198px
 }
 /* #homepageLG{
   width: 55em;
