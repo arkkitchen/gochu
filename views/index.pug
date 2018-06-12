@@ -2,14 +2,17 @@ extends layout
 
 block content
   body
-    //- .show-on-medium-and-down.hide-on-large-only 
     .row
       .col.s8
-        img#homepageMSm(src='/images/homepage.png' alt='homepage background')
+        img#homepageImg(src='/images/homepage.png' alt='homepage background')
         br
         br
         br
-        a#homepageButtMSm.href-button.par(href='/products') meet gochu
+        .hide-on-large-only.show-on-medium-and-down
+          a#homepageButtMSm.href-button.par(href='/products') meet gochu
+        .hide-on-med-and-down.show-on-large
+          a#homepageButtLG.href-button.par(href='/products') meet gochu
+
 
       .col.s4.hide-on-med-and-down.letters
         .row#bookmarks

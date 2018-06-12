@@ -20,7 +20,12 @@ body{
   overflow-wrap: break-word
 }
 #homepageButtMSm{
-margin-left: 117px
+margin-left: 117px;
+width: 180px;
+font-size: 21px;
+padding-left: 40px;
+padding-right: 40px;
+padding-bottom: 12px
 }
 
 #homepageButtLG{
@@ -28,7 +33,7 @@ margin-left: 117px
 }
   
 
-#homepageMSm{
+#homepageImg{
   width: 55em;
   height: 58em;
   padding-top: 150px;
@@ -63,6 +68,12 @@ nav a.button-collapse i{
   line-height: 175px
 }
 
+
+.nav-wrapper.lgScreen{
+  padding-left: 25px;
+  padding-top: 15px;
+  padding-right: 25px
+}
 
   nav .nav-wrapper{
     padding-left: 25px;
