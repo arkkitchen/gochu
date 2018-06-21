@@ -32,10 +32,55 @@ router.get('/shipping', (req, res, next) => {
 
 router.post('/shipping', (req, res, next) => {
   //TODO: UPS HERE
-  req.session.gc_shipping = req.body;
+  let body = req.body;
+  req.session.gc_shipping = body;
   req.session.save((err) => {
-    res.redirect('/cart/charge');
+    stripe.orders.create({
+      currency: 'usd',
+      items: [
+        {
+          type: 'sku',
+          parent: process.env.SKU,
+          quantity: _.get(req, 'session.cart_info.items'),
+        },
+      ],
+      shipping: {
+        name: _.get(body, 'first_name'),
+        address: {
+          line1: _.get(body, 'address'),
+          city: _.get(body, 'city'),
+          state: _.get(body, 'state'),
+          postal_code: _.get(body, 'zip'),
+          country: 'US',
+        },
+      },
+    })
+    .then(data => {
+      let methods = _.get(data, 'shipping_methods', []);
+      req.session.shipping_methods = _.sortBy(methods, [function(i) { return i.amount}]);
+      req.session.save((err) => {
+        res.redirect('/cart/charge');
+      });
+    });
   });
+});
+
+router.post('/shipping/edit', (req, res, next) => {
+  let result = [];
+  let methods = _.cloneDeep(_.get(req, 'session.shipping_methods', []));
+  let goodIndex = _.findIndex(methods, function(i) { return i.id === _.get(req, 'body.shipping')});
+  result.push(methods[goodIndex]);
+  _.forEach(methods, function(val, i){
+    if( i !== goodIndex ) {
+      result.push(val);
+    }
+  });
+  console.log("DID IT WORK: ", result);
+  req.session.shipping_methods = result;
+  req.session.save((err) => {
+
+    res.redirect('/cart/charge');
+  })
 });
 
 router.post('/promos', (req, res, next) => {
@@ -120,7 +165,7 @@ router.get('/charge', (req, res, next) => {
     res.render('cart/shipping', data);
   }
 
-  let shipping = 5.00;
+  let shipping = _.get(_.head(_.get(req, 'session.shipping_methods')), 'amount') / 100;
   let vol  = {};
   let total = _.cloneDeep(_.get(data, 'cart_info.gross')) + shipping;
   vol.keyPublishable = keyPublishable;

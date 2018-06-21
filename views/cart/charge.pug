@@ -6,17 +6,34 @@ block content
       h5.pageTitle.bordered Your Order
   .row
     .col.s6.offset-s3
-      p Cart Totals
+      h5.pageTitle products
+      for product in cart
+        p #{product.product} (#{product.quantity})
+          span.right $#{product.total}
+      hr
+      p Subtotal
         span.right $#{cart_info.total}
-      p Shipping
-        span.right $#{shipping}
-      .bordered
-      p Total
-        span.right $#{cart_total}
-      .bordered
-      form(action='/cart/charge', method='POST')
-        article
-          label Amount: $#{cart_info.gross}
+      //- p Shipping
+      //-   span.right $#{shipping}
+      h5.pageTitle shipping
+
+      form(action='/cart/shipping/edit', method='POST')
+        .input-field
+          select.par(name='shipping')
+            for method in shipping_methods
+              //- option(value=1) test
+              option(value=method.id) #{method.description}(#{method.delivery_estimate.date}): $#{method.amount / 100}
+
+            label Amount
+        .bordered
+          p Total
+            span.right $#{cart_total}
+
+        .shipping-apply.center(style='margin: 20px;')
+          input.gc-button.lightGrey.par(type='submit', value='new shipping')
+  .row
+    .center(style='margin: 20px;')
+      form.center(action='/cart/charge', method='POST')
         script(
           src='//checkout.stripe.com/v2/checkout.js',
           class='stripe-button',
