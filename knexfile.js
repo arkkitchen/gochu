@@ -6,25 +6,8 @@ module.exports = {
     connection: {
       database: 'oven',
       user:     'gochu',
-      password: 'testtest',
-      host:     'localhost'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  developmentAws: {
-    client: 'pg',
-    connection: {
-      database: 'oven_test',
-      user:     'gochu',
       password: 'dummypassword',
-      host:     'oven-test.citcxlfntzst.us-east-2.rds.amazonaws.com'
+      host:     'localhost'
     },
     pool: {
       min: 2,
@@ -40,8 +23,8 @@ module.exports = {
     connection: {
       database: 'oven',
       user:     'gochu',
-      password: process.env.PASSWORD,
-      host:     process.env.HOST
+      password: 'dummypassword',
+      host:     'localhost'
     },
     pool: {
       min: 2,
